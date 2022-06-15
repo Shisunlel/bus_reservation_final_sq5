@@ -21,6 +21,7 @@ public class Account extends javax.swing.JFrame {
         var frame = this;
         frame.setTitle("Home");
         menu.add(MenuBar.createMenu(User.User.getCurrentInstance().getPosition()));
+        Position.Position.getAllPositions();
         frame.setVisible(true);
     }
 

@@ -234,6 +234,9 @@
                       <Color blue="d1" green="53" red="1" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="City Travel"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[200, 43]"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>
