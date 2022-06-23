@@ -5,6 +5,9 @@
 package Employee;
 
 import Global.MenuBar;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
@@ -18,9 +21,14 @@ public class Account extends javax.swing.JFrame {
      */
     public Account() {
         initComponents();
-        var frame = this;
+        JFrame frame = this;
         frame.setTitle("Home");
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         menu.add(MenuBar.createMenu(User.User.getCurrentInstance().getPosition()));
+        JButton btn = new JButton();
+        btn.setText("Click");
+        contentPanel.setPreferredSize(new Dimension(640, 480));
+        contentPanel.add(btn, BorderLayout.SOUTH);
         Position.Position.getAllPositions();
         frame.setVisible(true);
     }
@@ -33,12 +41,237 @@ public class Account extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        login_group = new javax.swing.ButtonGroup();
+        active_group = new javax.swing.ButtonGroup();
+        contentPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jRadioButton8 = new javax.swing.JRadioButton();
         menu = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
+
+        jPanel2.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel1.setText("First Name");
+        jPanel2.add(jLabel1);
+
+        jTextField1.setText("jTextField1");
+        jPanel2.add(jTextField1);
+
+        jPanel1.add(jPanel2);
+
+        jPanel3.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel2.setText("Last Name");
+        jPanel3.add(jLabel2);
+
+        jTextField2.setText("jTextField2");
+        jPanel3.add(jTextField2);
+
+        jPanel1.add(jPanel3);
+
+        jPanel4.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel3.setText("Position");
+        jPanel4.add(jLabel3);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox1);
+
+        jPanel1.add(jPanel4);
+
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
+
+        jPanel6.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel4.setText("Email");
+        jPanel6.add(jLabel4);
+
+        jTextField4.setText("jTextField1");
+        jPanel6.add(jTextField4);
+
+        jPanel5.add(jPanel6);
+
+        jPanel7.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel5.setText("Password");
+        jPanel7.add(jLabel5);
+
+        jPasswordField1.setText("jPasswordField1");
+        jPanel7.add(jPasswordField1);
+
+        jPanel5.add(jPanel7);
+
+        jPanel8.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel6.setText("Mobile");
+        jPanel8.add(jLabel6);
+
+        jTextField3.setText("jTextField3");
+        jPanel8.add(jTextField3);
+
+        jPanel5.add(jPanel8);
+
+        jPanel9.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
+
+        jPanel10.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel7.setText("Salary");
+        jPanel10.add(jLabel7);
+
+        jTextField5.setText("jTextField1");
+        jPanel10.add(jTextField5);
+
+        jPanel9.add(jPanel10);
+
+        jPanel11.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel8.setText("Can Login");
+        jPanel11.add(jLabel8);
+        jPanel11.add(jPanel13);
+
+        login_group.add(jRadioButton2);
+        jRadioButton2.setText("jRadioButton2");
+        jPanel11.add(jRadioButton2);
+
+        login_group.add(jRadioButton1);
+        jRadioButton1.setText("jRadioButton1");
+        jPanel11.add(jRadioButton1);
+
+        jPanel9.add(jPanel11);
+
+        jPanel12.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel9.setText("Is Active");
+        jPanel12.add(jLabel9);
+        jPanel12.add(jPanel14);
+
+        active_group.add(jRadioButton3);
+        jRadioButton3.setText("jRadioButton3");
+        jPanel12.add(jRadioButton3);
+
+        active_group.add(jRadioButton4);
+        jRadioButton4.setText("jRadioButton4");
+        jPanel12.add(jRadioButton4);
+
+        jPanel9.add(jPanel12);
+
+        jPanel15.setLayout(new java.awt.GridBagLayout());
+
+        jPanel17.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel11.setText("Address");
+        jPanel17.add(jLabel11);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel17.add(jScrollPane1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
+        jPanel15.add(jPanel17, gridBagConstraints);
+
+        jPanel19.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel12.setText("Is Active");
+        jPanel19.add(jLabel12);
+        jPanel19.add(jPanel20);
+
+        active_group.add(jRadioButton7);
+        jRadioButton7.setText("jRadioButton3");
+        jPanel19.add(jRadioButton7);
+
+        active_group.add(jRadioButton8);
+        jRadioButton8.setText("jRadioButton4");
+        jPanel19.add(jRadioButton8);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
+        jPanel15.add(jPanel19, gridBagConstraints);
+
+        javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
+        contentPanel.setLayout(contentPanelLayout);
+        contentPanelLayout.setHorizontalGroup(
+            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
+        );
+        contentPanelLayout.setVerticalGroup(
+            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(contentPanel);
 
         menu.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         setJMenuBar(menu);
@@ -82,6 +315,53 @@ public class Account extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup active_group;
+    private javax.swing.JPanel contentPanel;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton jRadioButton8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.ButtonGroup login_group;
     private javax.swing.JMenuBar menu;
     // End of variables declaration//GEN-END:variables
 }
