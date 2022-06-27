@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  *
@@ -24,8 +25,11 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         var icon = new ImageIcon(getClass().getResource("/Image/background.jpg"));
-        icon.setImage(icon.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
+        icon.setImage(icon.getImage().getScaledInstance(getWidth(), getHeight()+100, Image.SCALE_SMOOTH));
+	
         backgroundLabel.setIcon(icon);
+		backgroundLabel.setHorizontalAlignment(JLabel.LEFT);
+		backgroundLabel.setVerticalAlignment(JLabel.CENTER);
     }
 
     /**
@@ -36,21 +40,38 @@ public class Login extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         leftPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
         backgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
-        setPreferredSize(new java.awt.Dimension(1024, 1024));
+        setMaximumSize(new java.awt.Dimension(3000, 3000));
+        setMinimumSize(new java.awt.Dimension(1200, 700));
+        setPreferredSize(new java.awt.Dimension(1300, 1024));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                formComponentMoved(evt);
+            }
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
+        addWindowStateListener(new java.awt.event.WindowStateListener() {
+            public void windowStateChanged(java.awt.event.WindowEvent evt) {
+                formWindowStateChanged(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         leftPanel.setBackground(new java.awt.Color(243, 243, 243));
@@ -58,16 +79,28 @@ public class Login extends javax.swing.JFrame {
         leftPanel.setLayout(new java.awt.GridBagLayout());
 
         jPanel3.setBackground(new java.awt.Color(243, 243, 243));
+        jPanel3.setPreferredSize(new java.awt.Dimension(300, 300));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(55, 50, 55, 50));
-        jPanel1.setLayout(new java.awt.GridLayout(3, 0, 0, 10));
+        jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel1.setPreferredSize(new java.awt.Dimension(379, 359));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("E-mail:");
+        jLabel2.setAlignmentX(1.0F);
+        jLabel2.setAlignmentY(1.0F);
+        jLabel2.setMaximumSize(new java.awt.Dimension(50, 30));
+        jLabel2.setPreferredSize(new java.awt.Dimension(1, 23));
 
         txtEmail.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(89, 89, 89));
-        txtEmail.setText("Email");
+        txtEmail.setToolTipText("");
         txtEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(225, 225, 225), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
         txtEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtEmail.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        txtEmail.setMaximumSize(new java.awt.Dimension(100, 50));
         txtEmail.setMinimumSize(new java.awt.Dimension(100, 15));
         txtEmail.setPreferredSize(new java.awt.Dimension(100, 15));
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -75,13 +108,22 @@ public class Login extends javax.swing.JFrame {
                 txtEmailActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEmail);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel3.setText("Password:");
+        jLabel3.setMaximumSize(new java.awt.Dimension(10, 13));
+        jLabel3.setPreferredSize(new java.awt.Dimension(40, 13));
 
         txtPassword.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtPassword.setText("123");
         txtPassword.setToolTipText("");
         txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(225, 225, 225), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
-        jPanel1.add(txtPassword);
+        txtPassword.setMaximumSize(new java.awt.Dimension(100, 50));
+        txtPassword.setPreferredSize(new java.awt.Dimension(38, 50));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(48, 192, 79));
         jButton1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -95,99 +137,95 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
 
-        jPanel4.setBackground(new java.awt.Color(243, 243, 243));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
 
         jLabel1.setBackground(new java.awt.Color(243, 243, 243));
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(1, 83, 209));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("City Travel");
         jLabel1.setMaximumSize(new java.awt.Dimension(200, 43));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 237, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(0, 32, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 32, Short.MAX_VALUE)))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 46, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanel.add(jPanel3, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 81;
+        gridBagConstraints.ipady = 148;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        leftPanel.add(jPanel3, gridBagConstraints);
 
         getContentPane().add(leftPanel);
 
         rightPanel.setBackground(new java.awt.Color(243, 243, 243));
-        rightPanel.setPreferredSize(new java.awt.Dimension(1024, 1024));
-
-        javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
-        rightPanel.setLayout(rightPanelLayout);
-        rightPanelLayout.setHorizontalGroup(
-            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rightPanelLayout.createSequentialGroup()
-                .addComponent(backgroundLabel)
-                .addGap(0, 1024, Short.MAX_VALUE))
-        );
-        rightPanelLayout.setVerticalGroup(
-            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rightPanelLayout.createSequentialGroup()
-                .addComponent(backgroundLabel)
-                .addGap(0, 1024, Short.MAX_VALUE))
-        );
+        rightPanel.setPreferredSize(new java.awt.Dimension(2024, 2024));
+        rightPanel.setLayout(new java.awt.BorderLayout());
+        rightPanel.add(backgroundLabel, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(rightPanel);
 
-        pack();
+        setSize(new java.awt.Dimension(1314, 737));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+         
         String email = txtEmail.getText();
         String password = String.valueOf(txtPassword.getPassword());
-        
+
         try {
             var stmt = DBCon.getConnection().createStatement();
             var query = "select * from staff where email = ? and password = ?";
             var preparedStatement = stmt.getConnection().prepareStatement(query);
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
-            
+
             var resultSet = preparedStatement.executeQuery();
             if(resultSet.next()) {
                 String firstName = resultSet.getString("first_name");
@@ -200,6 +238,7 @@ public class Login extends javax.swing.JFrame {
                 var account = new Account();
                 dispose();
             } else {
+                JOptionPane.showMessageDialog(this, "Incorrect Email or Password!");
                 txtEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
                 txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(225, 0, 0), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
             }
@@ -208,9 +247,28 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+		jButton1ActionPerformed(evt);
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
+		jButton1ActionPerformed(evt);
+		
     }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowStateChanged
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentResized
+
+    private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentMoved
 
     /**
      * @param args the command line arguments
@@ -252,9 +310,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel backgroundLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JTextField txtEmail;
