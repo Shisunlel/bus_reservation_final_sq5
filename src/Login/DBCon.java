@@ -20,15 +20,8 @@ public class DBCon {
     private static final String DBUSER = "root";
     private static final String DBPASSWORD = "P@ssw0rd";
     
-    public static Connection getConnection() {
-       Connection con = null;
-       
-        try {
-            con = DriverManager.getConnection(DB_URL, DBUSER, DBPASSWORD);
-        } catch (SQLException ex) {
-            Logger.getLogger(DBCon.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                
-        return con;
+    public static Connection getConnection() throws SQLException{
+		Connection con = DriverManager.getConnection(DB_URL, DBUSER, DBPASSWORD);
+		return con;
     }
 }
