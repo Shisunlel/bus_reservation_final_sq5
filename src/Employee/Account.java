@@ -8,6 +8,7 @@ import Global.Helper;
 import Global.MenuBar;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,7 +20,11 @@ import javax.swing.table.DefaultTableModel;
  * @author vutha.vyrapol
  */
 public class Account extends javax.swing.JFrame {
+
     DefaultTableModel empTable;
+    String id;
+    ArrayList<HashMap<String, Object>> positions;
+
     private void refreshTable() {
         var employees = Employee.getAllEmployees();
         int i = 0;
@@ -30,13 +35,13 @@ public class Account extends javax.swing.JFrame {
             data[0] = employee.get("id");
             data[1] = employee.get("first_name");
             data[2] = employee.get("last_name");
-            data[3] = employee.get("position");
+            data[3] = Helper.toUpperCase(employee.get("position").toString());
             data[4] = employee.get("email");
             data[5] = employee.get("mobile");
             data[6] = employee.get("address");
             data[7] = employee.get("salary");
-            data[8] = employee.get("can_login");
-            data[9] = employee.get("is_active");
+            data[8] = employee.get("can_login").equals(true) ? "Yes" : "No";
+            data[9] = employee.get("is_active").equals(true) ? "Yes" : "No";
             empTable.addRow(data);
             i++;
         }
@@ -55,7 +60,7 @@ public class Account extends javax.swing.JFrame {
         btn.setText("Click");
         contentPanel.setPreferredSize(new Dimension(640, 480));
         contentPanel.add(btn, BorderLayout.SOUTH);
-        var positions = Position.Position.getAllPositions();
+        positions = Position.Position.getAllPositions();
         for (var position : positions) {
             cbPosition.addItem(new ComboItem(Helper.toUpperCase(position.get("name").toString()), position.get("id").toString()));
         }
@@ -212,12 +217,12 @@ public class Account extends javax.swing.JFrame {
         jPanel11.add(jPanel13);
 
         login_group.add(loginY);
-        loginY.setSelected(true);
         loginY.setText("Yes");
         loginY.setActionCommand("1");
         jPanel11.add(loginY);
 
         login_group.add(loginN);
+        loginN.setSelected(true);
         loginN.setText("No");
         loginN.setActionCommand("0");
         jPanel11.add(loginN);
@@ -231,12 +236,12 @@ public class Account extends javax.swing.JFrame {
         jPanel12.add(jPanel14);
 
         active_group.add(activeY);
-        activeY.setSelected(true);
         activeY.setText("Yes");
         activeY.setActionCommand("1");
         jPanel12.add(activeY);
 
         active_group.add(activeN);
+        activeN.setSelected(true);
         activeN.setText("No");
         activeN.setActionCommand("0");
         jPanel12.add(activeN);
@@ -280,6 +285,11 @@ public class Account extends javax.swing.JFrame {
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         jPanel19.add(btnUpdate);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -301,6 +311,11 @@ public class Account extends javax.swing.JFrame {
                 "Id", "First Name", "Last Name", "Position", "Email", "Mobile", "Address", "Salary", "Can Login", "Active"
             }
         ));
+        employeeTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employeeTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(employeeTable);
 
         jPanel16.add(jScrollPane2);
@@ -344,10 +359,9 @@ public class Account extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
-        String position = ((ComboItem)cbPosition.getSelectedItem()).getValue();
+        String position = ((ComboItem) cbPosition.getSelectedItem()).getValue();
         String email = txtEmail.getText();
         String password = String.valueOf(txtPassword.getPassword());
         String mobile = txtMobile.getText();
@@ -357,10 +371,56 @@ public class Account extends javax.swing.JFrame {
         String address = txtAddress.getText();
         HashMap<String, String> message = Employee.AddEmployee(firstName, lastName, position, email, password, mobile, salary, address, can_login, is_active);
         JOptionPane.showMessageDialog(this, message.get("message"));
-        if (message.get("code") == "1") {
+        if ("1".equals(message.get("code"))) {
             refreshTable();
         }
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void employeeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTableMouseClicked
+        int row = employeeTable.getSelectedRow();
+        id = empTable.getValueAt(row, 0).toString();
+        txtFirstName.setText(empTable.getValueAt(row, 1).toString());
+        txtLastName.setText(empTable.getValueAt(row, 2).toString());
+        for (var position : positions) {
+            if (position.get("name").toString().equals(empTable.getValueAt(row, 3).toString())) {
+                cbPosition.setSelectedItem(new ComboItem(position.get("name").toString(), position.get("id").toString()));
+            }
+        }
+        txtEmail.setText(empTable.getValueAt(row, 4).toString());
+        txtPassword.setText("");
+        txtMobile.setText(empTable.getValueAt(row, 5).toString());
+        Object address = empTable.getValueAt(row, 6);
+        txtAddress.setText(address == null ? "" : address.toString());
+        txtSalary.setText(empTable.getValueAt(row, 7).toString());
+        if (empTable.getValueAt(row, 8).toString().equals("Yes")) {
+            loginY.setSelected(true);
+        } else {
+            loginN.setSelected(false);
+        }
+        if (empTable.getValueAt(row, 9).toString().equals("Yes")) {
+            activeY.setSelected(true);
+        } else {
+            activeN.setSelected(false);
+        }
+    }//GEN-LAST:event_employeeTableMouseClicked
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        String firstName = txtFirstName.getText();
+        String lastName = txtLastName.getText();
+        String position = ((ComboItem) cbPosition.getSelectedItem()).getValue();
+        String email = txtEmail.getText();
+        String password = String.valueOf(txtPassword.getPassword());
+        String mobile = txtMobile.getText();
+        String salary = txtSalary.getText();
+        String can_login = login_group.getSelection().getActionCommand();
+        String is_active = active_group.getSelection().getActionCommand();
+        String address = txtAddress.getText();
+        HashMap<String, String> message = Employee.UpdateEmployee(id, firstName, lastName, position, email, password, mobile, salary, address, can_login, is_active);
+        JOptionPane.showMessageDialog(this, message.get("message"));
+        if ("1".equals(message.get("code"))) {
+            refreshTable();
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments

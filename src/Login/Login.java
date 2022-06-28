@@ -221,7 +221,7 @@ public class Login extends javax.swing.JFrame {
 
         try {
             var stmt = DBCon.getConnection().createStatement();
-            var query = "select * from staff where email = ? and password = ?";
+            var query = "select * from staff where email = ? and password = ? and can_login = 1 and is_active = 1";
             var preparedStatement = stmt.getConnection().prepareStatement(query);
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
@@ -233,9 +233,8 @@ public class Login extends javax.swing.JFrame {
                 String uEmail = resultSet.getString("email");
                 Integer positionId = resultSet.getInt("position_id");
                 Integer canLogin = resultSet.getInt("can_login");
-                // TODO: after login set user and check permission then open home page
-                var currentUser = User.User.getInstace(firstName, lastName, uEmail, positionId, canLogin);
-                var account = new Account();
+                User.User.getInstace(firstName, lastName, uEmail, positionId, canLogin);
+                new Account();
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Incorrect Email or Password!");

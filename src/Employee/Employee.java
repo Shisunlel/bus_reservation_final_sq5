@@ -70,4 +70,48 @@ public class Employee {
         }
         return result;
     }
+
+    public static HashMap<String, String> UpdateEmployee(String id, String firstName, String lastName, String position, String email, String password, String mobile, String salary, String address, String can_login, String is_active) {
+        HashMap<String, String> result = new HashMap<>();
+        try {
+            var stmt = DBCon.getConnection().createStatement();
+            if (password.length() > 0) {
+                var query = "update staff set position_id = ?, first_name = ?, last_name = ?, email = ?, password = ?, mobile = ?, address = ?, salary = ?, is_active = ?, can_login = ? where id = ?;";
+                var preparedStatement = stmt.getConnection().prepareStatement(query);
+                preparedStatement.setInt(1, Integer.parseInt(position));
+                preparedStatement.setString(2, firstName);
+                preparedStatement.setString(3, lastName);
+                preparedStatement.setString(4, email);
+                preparedStatement.setString(5, password);
+                preparedStatement.setString(6, mobile);
+                preparedStatement.setString(7, address);
+                preparedStatement.setFloat(8, Float.parseFloat(salary));
+                preparedStatement.setInt(9, Integer.parseInt(is_active));
+                preparedStatement.setInt(10, Integer.parseInt(can_login));
+                preparedStatement.setInt(11, Integer.parseInt(id));
+                preparedStatement.execute();
+            } else {
+                var query = "update staff set position_id = ?, first_name = ?, last_name = ?, email = ?, mobile = ?, address = ?, salary = ?, is_active = ?, can_login = ? where id = ?;";
+                var preparedStatement = stmt.getConnection().prepareStatement(query);
+                preparedStatement.setInt(1, Integer.parseInt(position));
+                preparedStatement.setString(2, firstName);
+                preparedStatement.setString(3, lastName);
+                preparedStatement.setString(4, email);
+                preparedStatement.setString(5, mobile);
+                preparedStatement.setString(6, address);
+                preparedStatement.setFloat(7, Float.parseFloat(salary));
+                preparedStatement.setInt(8, Integer.parseInt(is_active));
+                preparedStatement.setInt(9, Integer.parseInt(can_login));
+                preparedStatement.setInt(10, Integer.parseInt(id));
+                preparedStatement.execute();
+            }
+            stmt.close();
+            result.put("code", "1");
+            result.put("message", "Update Successfully");
+        } catch (SQLException ex) {
+            result.put("code", "0");
+            result.put("message", ex.getMessage());
+        }
+        return result;
+    }
 }
