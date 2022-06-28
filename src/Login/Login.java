@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame {
 
         txtEmail.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(89, 89, 89));
-        txtEmail.setToolTipText("");
+        txtEmail.setText("mail@mail.com");
         txtEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(225, 225, 225), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
         txtEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtEmail.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -115,7 +115,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setPreferredSize(new java.awt.Dimension(40, 13));
 
         txtPassword.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtPassword.setToolTipText("");
+        txtPassword.setText("123");
         txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(225, 225, 225), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
         txtPassword.setMaximumSize(new java.awt.Dimension(100, 50));
         txtPassword.setPreferredSize(new java.awt.Dimension(38, 50));
@@ -161,7 +161,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jLabel1.setBackground(new java.awt.Color(243, 243, 243));

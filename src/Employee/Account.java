@@ -4,17 +4,43 @@
  */
 package Employee;
 
+import Global.Helper;
 import Global.MenuBar;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author vutha.vyrapol
  */
 public class Account extends javax.swing.JFrame {
+    DefaultTableModel empTable;
+    private void refreshTable() {
+        var employees = Employee.getAllEmployees();
+        int i = 0;
+        empTable = (DefaultTableModel) employeeTable.getModel();
+        empTable.setRowCount(0);
+        for (var employee : employees) {
+            Object[] data = new Object[10];
+            data[0] = employee.get("id");
+            data[1] = employee.get("first_name");
+            data[2] = employee.get("last_name");
+            data[3] = employee.get("position");
+            data[4] = employee.get("email");
+            data[5] = employee.get("mobile");
+            data[6] = employee.get("address");
+            data[7] = employee.get("salary");
+            data[8] = employee.get("can_login");
+            data[9] = employee.get("is_active");
+            empTable.addRow(data);
+            i++;
+        }
+    }
 
     /**
      * Creates new form Account
@@ -29,7 +55,13 @@ public class Account extends javax.swing.JFrame {
         btn.setText("Click");
         contentPanel.setPreferredSize(new Dimension(640, 480));
         contentPanel.add(btn, BorderLayout.SOUTH);
-        Position.Position.getAllPositions();
+        var positions = Position.Position.getAllPositions();
+        for (var position : positions) {
+            cbPosition.addItem(new ComboItem(Helper.toUpperCase(position.get("name").toString()), position.get("id").toString()));
+        }
+        refreshTable();
+        // positions.get(INDEX).get(KEY)
+        // first get is arraylist, second get is hashmap key`
         frame.setVisible(true);
     }
 
@@ -49,45 +81,48 @@ public class Account extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtFirstName = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtLastName = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbPosition = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtMobile = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtSalary = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        loginY = new javax.swing.JRadioButton();
+        loginN = new javax.swing.JRadioButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        activeY = new javax.swing.JRadioButton();
+        activeN = new javax.swing.JRadioButton();
         jPanel15 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtAddress = new javax.swing.JTextArea();
         jPanel19 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        jPanel16 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        employeeTable = new javax.swing.JTable();
         menu = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,8 +136,8 @@ public class Account extends javax.swing.JFrame {
         jLabel1.setText("First Name");
         jPanel2.add(jLabel1);
 
-        jTextField1.setText("John");
-        jPanel2.add(jTextField1);
+        txtFirstName.setText("John");
+        jPanel2.add(txtFirstName);
 
         jPanel1.add(jPanel2);
 
@@ -111,8 +146,8 @@ public class Account extends javax.swing.JFrame {
         jLabel2.setText("Last Name");
         jPanel3.add(jLabel2);
 
-        jTextField2.setText("Doe");
-        jPanel3.add(jTextField2);
+        txtLastName.setText("Doe");
+        jPanel3.add(txtLastName);
 
         jPanel1.add(jPanel3);
 
@@ -121,7 +156,7 @@ public class Account extends javax.swing.JFrame {
         jLabel3.setText("Position");
         jPanel4.add(jLabel3);
 
-        jPanel4.add(jComboBox1);
+        jPanel4.add(cbPosition);
 
         jPanel1.add(jPanel4);
 
@@ -132,8 +167,8 @@ public class Account extends javax.swing.JFrame {
         jLabel4.setText("Email");
         jPanel6.add(jLabel4);
 
-        jTextField4.setText("john@city.travel.com");
-        jPanel6.add(jTextField4);
+        txtEmail.setText("john@city.travel.com");
+        jPanel6.add(txtEmail);
 
         jPanel5.add(jPanel6);
 
@@ -142,8 +177,8 @@ public class Account extends javax.swing.JFrame {
         jLabel5.setText("Password");
         jPanel7.add(jLabel5);
 
-        jPasswordField1.setText("1234qwer");
-        jPanel7.add(jPasswordField1);
+        txtPassword.setText("1234qwer");
+        jPanel7.add(txtPassword);
 
         jPanel5.add(jPanel7);
 
@@ -152,8 +187,8 @@ public class Account extends javax.swing.JFrame {
         jLabel6.setText("Mobile");
         jPanel8.add(jLabel6);
 
-        jTextField3.setText("012345678");
-        jPanel8.add(jTextField3);
+        txtMobile.setText("012345678");
+        jPanel8.add(txtMobile);
 
         jPanel5.add(jPanel8);
 
@@ -164,8 +199,9 @@ public class Account extends javax.swing.JFrame {
         jLabel7.setText("Salary");
         jPanel10.add(jLabel7);
 
-        jTextField5.setText("150");
-        jPanel10.add(jTextField5);
+        txtSalary.setFont(txtSalary.getFont());
+        txtSalary.setText("150");
+        jPanel10.add(txtSalary);
 
         jPanel9.add(jPanel10);
 
@@ -175,13 +211,16 @@ public class Account extends javax.swing.JFrame {
         jPanel11.add(jLabel8);
         jPanel11.add(jPanel13);
 
-        login_group.add(jRadioButton2);
-        jRadioButton2.setText("Yes");
-        jPanel11.add(jRadioButton2);
+        login_group.add(loginY);
+        loginY.setSelected(true);
+        loginY.setText("Yes");
+        loginY.setActionCommand("1");
+        jPanel11.add(loginY);
 
-        login_group.add(jRadioButton1);
-        jRadioButton1.setText("No");
-        jPanel11.add(jRadioButton1);
+        login_group.add(loginN);
+        loginN.setText("No");
+        loginN.setActionCommand("0");
+        jPanel11.add(loginN);
 
         jPanel9.add(jPanel11);
 
@@ -191,13 +230,16 @@ public class Account extends javax.swing.JFrame {
         jPanel12.add(jLabel9);
         jPanel12.add(jPanel14);
 
-        active_group.add(jRadioButton3);
-        jRadioButton3.setText("Yes");
-        jPanel12.add(jRadioButton3);
+        active_group.add(activeY);
+        activeY.setSelected(true);
+        activeY.setText("Yes");
+        activeY.setActionCommand("1");
+        jPanel12.add(activeY);
 
-        active_group.add(jRadioButton4);
-        jRadioButton4.setText("No");
-        jPanel12.add(jRadioButton4);
+        active_group.add(activeN);
+        activeN.setText("No");
+        activeN.setActionCommand("0");
+        jPanel12.add(activeN);
 
         jPanel9.add(jPanel12);
 
@@ -208,9 +250,9 @@ public class Account extends javax.swing.JFrame {
         jLabel11.setText("Address");
         jPanel17.add(jLabel11);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAddress.setColumns(20);
+        txtAddress.setRows(5);
+        jScrollPane1.setViewportView(txtAddress);
 
         jPanel17.add(jScrollPane1);
 
@@ -225,17 +267,43 @@ public class Account extends javax.swing.JFrame {
 
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 5, 0));
 
-        jButton1.setText("Save");
-        jPanel19.add(jButton1);
+        btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        jPanel19.add(btnSave);
 
-        jButton2.setText("Update");
-        jPanel19.add(jButton2);
+        btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Update");
+        jPanel19.add(btnUpdate);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.weightx = 1.0;
         jPanel15.add(jPanel19, gridBagConstraints);
+
+        jPanel16.setLayout(new java.awt.GridLayout(1, 0));
+
+        employeeTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "First Name", "Last Name", "Position", "Email", "Mobile", "Address", "Salary", "Can Login", "Active"
+            }
+        ));
+        jScrollPane2.setViewportView(employeeTable);
+
+        jPanel16.add(jScrollPane2);
 
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
         contentPanel.setLayout(contentPanelLayout);
@@ -244,7 +312,8 @@ public class Account extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -261,7 +330,9 @@ public class Account extends javax.swing.JFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(contentPanel);
@@ -271,6 +342,25 @@ public class Account extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        String firstName = txtFirstName.getText();
+        String lastName = txtLastName.getText();
+        String position = ((ComboItem)cbPosition.getSelectedItem()).getValue();
+        String email = txtEmail.getText();
+        String password = String.valueOf(txtPassword.getPassword());
+        String mobile = txtMobile.getText();
+        String salary = txtSalary.getText();
+        String can_login = login_group.getSelection().getActionCommand();
+        String is_active = active_group.getSelection().getActionCommand();
+        String address = txtAddress.getText();
+        HashMap<String, String> message = Employee.AddEmployee(firstName, lastName, position, email, password, mobile, salary, address, can_login, is_active);
+        JOptionPane.showMessageDialog(this, message.get("message"));
+        if (message.get("code") == "1") {
+            refreshTable();
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,11 +398,14 @@ public class Account extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton activeN;
+    private javax.swing.JRadioButton activeY;
     private javax.swing.ButtonGroup active_group;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<ComboItem> cbPosition;
     private javax.swing.JPanel contentPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTable employeeTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -330,6 +423,7 @@ public class Account extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
@@ -340,19 +434,18 @@ public class Account extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JRadioButton loginN;
+    private javax.swing.JRadioButton loginY;
     private javax.swing.ButtonGroup login_group;
     private javax.swing.JMenuBar menu;
+    private javax.swing.JTextArea txtAddress;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtFirstName;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtMobile;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtSalary;
     // End of variables declaration//GEN-END:variables
 }
