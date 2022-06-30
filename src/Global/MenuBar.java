@@ -1,8 +1,13 @@
 package Global;
 
+import Employee.Account;
+import Employee.Attendance;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -26,6 +31,13 @@ public class MenuBar {
             var otSub = new JMenuItem("Overtime");
             var roleSub = new JMenuItem("Role And Permission");
             var payrollSub = new JMenuItem("Payroll");
+            accountSub.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.remove(Account.secondPanel);
+                    Account.firstPanel.add(new Attendance());
+                }
+            });
             subMenu.add(accountSub);
             subMenu.add(attendanceSub);
             subMenu.add(otSub);

@@ -13,6 +13,7 @@ import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +25,9 @@ public class Account extends javax.swing.JFrame {
     DefaultTableModel empTable;
     String id;
     ArrayList<HashMap<String, Object>> positions;
+    public static JFrame frame;
+    public static JPanel firstPanel;
+    public static JPanel secondPanel;
 
     private void refreshTable() {
         var employees = Employee.getAllEmployees();
@@ -52,14 +56,12 @@ public class Account extends javax.swing.JFrame {
      */
     public Account() {
         initComponents();
-        JFrame frame = this;
+        frame = this;
         frame.setTitle("Home");
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        firstPanel = this.contentPanel;
+        secondPanel = this.mainPanel;
         menu.add(MenuBar.createMenu(User.User.getCurrentInstance().getPosition()));
-        JButton btn = new JButton();
-        btn.setText("Click");
-        contentPanel.setPreferredSize(new Dimension(640, 480));
-        contentPanel.add(btn, BorderLayout.SOUTH);
         positions = Position.Position.getAllPositions();
         for (var position : positions) {
             cbPosition.addItem(new ComboItem(Helper.toUpperCase(position.get("name").toString()), position.get("id").toString()));
@@ -83,6 +85,7 @@ public class Account extends javax.swing.JFrame {
         login_group = new javax.swing.ButtonGroup();
         active_group = new javax.swing.ButtonGroup();
         contentPanel = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -133,6 +136,8 @@ public class Account extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
+
+        contentPanel.setLayout(new java.awt.GridLayout());
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
@@ -320,35 +325,41 @@ public class Account extends javax.swing.JFrame {
 
         jPanel16.add(jScrollPane2);
 
-        javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
-        contentPanel.setLayout(contentPanelLayout);
-        contentPanelLayout.setHorizontalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20))
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 407, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap()))
         );
-        contentPanelLayout.setVerticalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                .addContainerGap())
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 438, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
+
+        contentPanel.add(mainPanel);
 
         getContentPane().add(contentPanel);
 
@@ -357,24 +368,6 @@ public class Account extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        String firstName = txtFirstName.getText();
-        String lastName = txtLastName.getText();
-        String position = ((ComboItem) cbPosition.getSelectedItem()).getValue();
-        String email = txtEmail.getText();
-        String password = String.valueOf(txtPassword.getPassword());
-        String mobile = txtMobile.getText();
-        String salary = txtSalary.getText();
-        String can_login = login_group.getSelection().getActionCommand();
-        String is_active = active_group.getSelection().getActionCommand();
-        String address = txtAddress.getText();
-        HashMap<String, String> message = Employee.AddEmployee(firstName, lastName, position, email, password, mobile, salary, address, can_login, is_active);
-        JOptionPane.showMessageDialog(this, message.get("message"));
-        if ("1".equals(message.get("code"))) {
-            refreshTable();
-        }
-    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void employeeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTableMouseClicked
         int row = employeeTable.getSelectedRow();
@@ -421,6 +414,24 @@ public class Account extends javax.swing.JFrame {
             refreshTable();
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        String firstName = txtFirstName.getText();
+        String lastName = txtLastName.getText();
+        String position = ((ComboItem) cbPosition.getSelectedItem()).getValue();
+        String email = txtEmail.getText();
+        String password = String.valueOf(txtPassword.getPassword());
+        String mobile = txtMobile.getText();
+        String salary = txtSalary.getText();
+        String can_login = login_group.getSelection().getActionCommand();
+        String is_active = active_group.getSelection().getActionCommand();
+        String address = txtAddress.getText();
+        HashMap<String, String> message = Employee.AddEmployee(firstName, lastName, position, email, password, mobile, salary, address, can_login, is_active);
+        JOptionPane.showMessageDialog(this, message.get("message"));
+        if ("1".equals(message.get("code"))) {
+            refreshTable();
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -499,6 +510,7 @@ public class Account extends javax.swing.JFrame {
     private javax.swing.JRadioButton loginN;
     private javax.swing.JRadioButton loginY;
     private javax.swing.ButtonGroup login_group;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menu;
     private javax.swing.JTextArea txtAddress;
     private javax.swing.JTextField txtEmail;
