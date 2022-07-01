@@ -235,7 +235,7 @@ public class Login extends javax.swing.JFrame {
                 Integer positionId = resultSet.getInt("position_id");
                 Integer canLogin = resultSet.getInt("can_login");
                 User.User.getInstace(firstName, lastName, uEmail, positionId, canLogin);
-				new UITabbar().setVisible(true);
+                new Account();
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Incorrect Email or Password!");
