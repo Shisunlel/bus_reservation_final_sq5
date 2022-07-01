@@ -35,6 +35,13 @@ public class MenuBar {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     Account.firstPanel.remove(Account.secondPanel);
+                    Account.firstPanel.add(new Account());
+                }
+            });
+            attendanceSub.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.remove(Account.secondPanel);
                     Account.firstPanel.add(new Attendance());
                 }
             });

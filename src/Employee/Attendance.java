@@ -4,6 +4,8 @@
  */
 package Employee;
 
+import Global.Helper;
+
 /**
  *
  * @author vutha.vyrapol
@@ -15,6 +17,10 @@ public class Attendance extends javax.swing.JPanel {
      */
     public Attendance() {
         initComponents();
+        var staffs = Employee.getAllEmployees();
+        for (var staff : staffs) {
+            cbStaff.addItem(new ComboItem(Helper.toUpperCase(staff.get("last_name").toString() + ' ' + Helper.toUpperCase(staff.get("first_name").toString())), staff.get("id").toString()));
+        }
         this.setVisible(true);
     }
 
@@ -28,6 +34,7 @@ public class Attendance extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        attendanceGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -35,8 +42,8 @@ public class Attendance extends javax.swing.JPanel {
         jPanel11 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
-        loginY = new javax.swing.JRadioButton();
-        loginN = new javax.swing.JRadioButton();
+        attendY = new javax.swing.JRadioButton();
+        attendN = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         dDate = new com.github.lgooddatepicker.components.DatePicker();
@@ -46,7 +53,7 @@ public class Attendance extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        employeeTable = new javax.swing.JTable();
+        attendanceTable = new javax.swing.JTable();
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
@@ -65,19 +72,21 @@ public class Attendance extends javax.swing.JPanel {
         jPanel11.add(jLabel8);
         jPanel11.add(jPanel13);
 
-        loginY.setText("Attend");
-        loginY.setActionCommand("1");
-        loginY.addActionListener(new java.awt.event.ActionListener() {
+        attendanceGroup.add(attendY);
+        attendY.setSelected(true);
+        attendY.setText("Attend");
+        attendY.setActionCommand("1");
+        attendY.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginYActionPerformed(evt);
+                attendYActionPerformed(evt);
             }
         });
-        jPanel11.add(loginY);
+        jPanel11.add(attendY);
 
-        loginN.setSelected(true);
-        loginN.setText("Absence");
-        loginN.setActionCommand("0");
-        jPanel11.add(loginN);
+        attendanceGroup.add(attendN);
+        attendN.setText("Absence");
+        attendN.setActionCommand("0");
+        jPanel11.add(attendN);
 
         jPanel1.add(jPanel11);
 
@@ -93,9 +102,9 @@ public class Attendance extends javax.swing.JPanel {
 
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 5, 0));
 
+        btnSave.setText("Save");
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -103,9 +112,9 @@ public class Attendance extends javax.swing.JPanel {
         });
         jPanel19.add(btnSave);
 
+        btnUpdate.setText("Update");
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -119,9 +128,9 @@ public class Attendance extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         jPanel15.add(jPanel19, gridBagConstraints);
 
-        jPanel16.setLayout(new java.awt.GridLayout());
+        jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
-        employeeTable.setModel(new javax.swing.table.DefaultTableModel(
+        attendanceTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -132,12 +141,12 @@ public class Attendance extends javax.swing.JPanel {
                 "Id", "First Name", "Last Name", "Attendance", "Date"
             }
         ));
-        employeeTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        attendanceTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                employeeTableMouseClicked(evt);
+                attendanceTableMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(employeeTable);
+        jScrollPane2.setViewportView(attendanceTable);
 
         jPanel16.add(jScrollPane2);
 
@@ -174,21 +183,24 @@ public class Attendance extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void employeeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTableMouseClicked
+    private void attendanceTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attendanceTableMouseClicked
 
-    }//GEN-LAST:event_employeeTableMouseClicked
+    }//GEN-LAST:event_attendanceTableMouseClicked
 
-    private void loginYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginYActionPerformed
+    private void attendYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attendYActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_loginYActionPerformed
+    }//GEN-LAST:event_attendYActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton attendN;
+    private javax.swing.JRadioButton attendY;
+    private javax.swing.ButtonGroup attendanceGroup;
+    private javax.swing.JTable attendanceTable;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<ComboItem> cbStaff;
     private com.github.lgooddatepicker.components.DatePicker dDate;
-    private javax.swing.JTable employeeTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
@@ -201,7 +213,5 @@ public class Attendance extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JRadioButton loginN;
-    private javax.swing.JRadioButton loginY;
     // End of variables declaration//GEN-END:variables
 }
