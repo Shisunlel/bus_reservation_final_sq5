@@ -5,12 +5,33 @@
 package Employee;
 
 import Global.Helper;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author vutha.vyrapol
  */
 public class Attendance extends javax.swing.JPanel {
+    DefaultTableModel attTable;
+    
+    private void refreshTable() {
+        var attendances = AttendanceClass.getAllAttendance();
+        int i = 0;
+        attTable = (DefaultTableModel) attendanceTable.getModel();
+        attTable.setRowCount(0);
+        for (var attendance : attendances) {
+            Object[] data = new Object[5];
+            data[0] = attendance.get("id");
+            data[1] = attendance.get("first_name");
+            data[2] = attendance.get("last_name");
+            data[3] = attendance.get("status").equals(true) ? "Attend" : "Absence";
+            data[4] = attendance.get("date");
+            attTable.addRow(data);
+            i++;
+        }
+    }
 
     /**
      * Creates new form Attendance
@@ -21,6 +42,7 @@ public class Attendance extends javax.swing.JPanel {
         for (var staff : staffs) {
             cbStaff.addItem(new ComboItem(Helper.toUpperCase(staff.get("last_name").toString() + ' ' + Helper.toUpperCase(staff.get("first_name").toString())), staff.get("id").toString()));
         }
+        refreshTable();
         this.setVisible(true);
     }
 
@@ -176,7 +198,14 @@ public class Attendance extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
+        String empId = ((ComboItem) cbStaff.getSelectedItem()).getValue();
+        String isAttend = attendanceGroup.getSelection().getActionCommand();
+        String date = dDate.getDate().toString();
+        HashMap<String, String> message = AttendanceClass.AddAttendance(empId, isAttend, date);
+        JOptionPane.showMessageDialog(this, message.get("message"));
+        if ("1".equals(message.get("code"))) {
+            refreshTable();
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
