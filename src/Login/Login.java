@@ -5,7 +5,6 @@
 package Login;
 
 import Employee.Account;
-import Employee.UITabbar;
 import java.awt.Image;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -162,7 +161,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jLabel1.setBackground(new java.awt.Color(243, 243, 243));
@@ -235,7 +234,7 @@ public class Login extends javax.swing.JFrame {
                 Integer positionId = resultSet.getInt("position_id");
                 Integer canLogin = resultSet.getInt("can_login");
                 User.User.getInstace(firstName, lastName, uEmail, positionId, canLogin);
-				new UITabbar().setVisible(true);
+                new Account();
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Incorrect Email or Password!");
@@ -243,7 +242,6 @@ public class Login extends javax.swing.JFrame {
                 txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(225, 0, 0), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
             }
         } catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, "Database connection error.\r\nPlease Contact Administrator.");
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
