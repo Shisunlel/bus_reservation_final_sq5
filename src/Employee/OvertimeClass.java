@@ -14,12 +14,12 @@ import java.util.HashMap;
  *
  * @author vutha.vyrapol
  */
-public class AttendanceClass {
-    public static ArrayList<HashMap<String, Object>> getAllAttendance() {
-        var attendances = new ArrayList<HashMap<String, Object>>();
+public class OvertimeClass {
+    public static ArrayList<HashMap<String, Object>> getAllOvertimes() {
+        var overtimes = new ArrayList<HashMap<String, Object>>();
         try {
             var stmt = DBCon.getConnection().createStatement();
-            var query = "select attendance.id, first_name, last_name, attendance.status, date from attendance join staff on staff_id = staff.id;";
+            var query = "select overtime.id, first_name, last_name, duration, overtime.status, date from overtime join staff on staff_id = staff.id;";
             var preparedStatement = stmt.getConnection().prepareStatement(query);
             var resultSet = preparedStatement.executeQuery();
             var meta = resultSet.getMetaData();
@@ -33,24 +33,25 @@ public class AttendanceClass {
                     var val = resultSet.getObject(colName);
                     row.put(colName, val);
                 }
-                attendances.add(row);
+                overtimes.add(row);
             }
             stmt.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        return attendances;
+        return overtimes;
     }
     
-    public static HashMap<String, String> AddAttendance(String staffId, String status, String date) {
+    public static HashMap<String, String> AddOvertime(String staffId, String duration, String status, String date) {
         HashMap<String, String> result = new HashMap<>();
         try {
             var stmt = DBCon.getConnection().createStatement();
-            var query = "insert into attendance(staff_id, status, date) values (?, ?, ?);";
+            var query = "insert into overtime(staff_id, duration, status, date) values (?, ?, ?, ?);";
             var preparedStatement = stmt.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, Integer.parseInt(staffId));
-            preparedStatement.setInt(2, Integer.parseInt(status));
-            preparedStatement.setDate(3, Date.valueOf(date));
+            preparedStatement.setInt(2, Integer.parseInt(duration));
+            preparedStatement.setString(3, status);
+            preparedStatement.setDate(4, Date.valueOf(date));
             preparedStatement.execute();
             stmt.close();
             result.put("code", "1");
@@ -62,16 +63,17 @@ public class AttendanceClass {
         return result;
     }
     
-    public static HashMap<String, String> UpdateAttendance(String id, String staffId, String status, String date) {
+    public static HashMap<String, String> UpdateOvertime(String id, String staffId, String duration, String status, String date) {
         HashMap<String, String> result = new HashMap<>();
         try {
             var stmt = DBCon.getConnection().createStatement();
-            var query = "update attendance set staff_id = ?, status = ?, date = ? where id = ?;";
+            var query = "update overtime set staff_id = ?, duration = ?, status = ?, date = ? where id = ?;";
             var preparedStatement = stmt.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, Integer.parseInt(staffId));
-            preparedStatement.setInt(2, Integer.parseInt(status));
-            preparedStatement.setDate(3, Date.valueOf(date));
-            preparedStatement.setInt(4, Integer.parseInt(id));
+            preparedStatement.setInt(2, Integer.parseInt(duration));
+            preparedStatement.setString(3, status);
+            preparedStatement.setDate(4, Date.valueOf(date));
+            preparedStatement.setInt(5, Integer.parseInt(id));
             preparedStatement.execute();
             stmt.close();
             result.put("code", "1");

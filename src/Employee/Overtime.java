@@ -15,32 +15,33 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author vutha.vyrapol
  */
-public class Attendance extends javax.swing.JPanel {
-    DefaultTableModel attTable;
+public class Overtime extends javax.swing.JPanel {
+    DefaultTableModel otTable;
     String id;
     ArrayList<HashMap<String, Object>> staffs;
     
     private void refreshTable() {
-        var attendances = AttendanceClass.getAllAttendance();
+        var overtimes = OvertimeClass.getAllOvertimes();
         int i = 0;
-        attTable = (DefaultTableModel) attendanceTable.getModel();
-        attTable.setRowCount(0);
-        for (var attendance : attendances) {
-            Object[] data = new Object[5];
-            data[0] = attendance.get("id");
-            data[1] = attendance.get("first_name");
-            data[2] = attendance.get("last_name");
-            data[3] = attendance.get("status").equals(true) ? "Attend" : "Absence";
-            data[4] = attendance.get("date");
-            attTable.addRow(data);
+        otTable = (DefaultTableModel) OTTable.getModel();
+        otTable.setRowCount(0);
+        for (var ot : overtimes) {
+            Object[] data = new Object[6];
+            data[0] = ot.get("id");
+            data[1] = ot.get("first_name");
+            data[2] = ot.get("last_name");
+            data[3] = ot.get("duration");
+            data[4] = ot.get("status").equals("Approved") ? "Approved" : "Submit";
+            data[5] = ot.get("date");
+            otTable.addRow(data);
             i++;
         }
     }
 
     /**
-     * Creates new form Attendance
+     * Creates new form Overtime
      */
-    public Attendance() {
+    public Overtime() {
         initComponents();
         staffs = Employee.getAllEmployees();
         for (var staff : staffs) {
@@ -60,26 +61,30 @@ public class Attendance extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        attendanceGroup = new javax.swing.ButtonGroup();
+        statusGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         cbStaff = new javax.swing.JComboBox<>();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        attendY = new javax.swing.JRadioButton();
-        attendN = new javax.swing.JRadioButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txtDuration = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         dDate = new com.github.lgooddatepicker.components.DatePicker();
         jPanel15 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        statusN = new javax.swing.JRadioButton();
+        statusY = new javax.swing.JRadioButton();
+        jPanel2 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        attendanceTable = new javax.swing.JTable();
+        OTTable = new javax.swing.JTable();
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
@@ -92,29 +97,20 @@ public class Attendance extends javax.swing.JPanel {
 
         jPanel1.add(jPanel4);
 
-        jPanel11.setLayout(new java.awt.GridLayout(2, 0));
+        jPanel5.setLayout(new java.awt.GridLayout(2, 0));
 
-        jLabel8.setText("Attendance");
-        jPanel11.add(jLabel8);
-        jPanel11.add(jPanel13);
+        jLabel4.setText("Duration (In Minutes)");
+        jPanel5.add(jLabel4);
 
-        attendanceGroup.add(attendY);
-        attendY.setSelected(true);
-        attendY.setText("Attend");
-        attendY.setActionCommand("1");
-        attendY.addActionListener(new java.awt.event.ActionListener() {
+        txtDuration.setText("120");
+        txtDuration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                attendYActionPerformed(evt);
+                txtDurationActionPerformed(evt);
             }
         });
-        jPanel11.add(attendY);
+        jPanel5.add(txtDuration);
 
-        attendanceGroup.add(attendN);
-        attendN.setText("Absence");
-        attendN.setActionCommand("0");
-        jPanel11.add(attendN);
-
-        jPanel1.add(jPanel11);
+        jPanel1.add(jPanel5);
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
@@ -126,11 +122,48 @@ public class Attendance extends javax.swing.JPanel {
 
         jPanel15.setLayout(new java.awt.GridBagLayout());
 
+        jPanel11.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel8.setText("Status");
+        jPanel11.add(jLabel8);
+        jPanel11.add(jPanel13);
+
+        statusGroup.add(statusN);
+        statusN.setSelected(true);
+        statusN.setText("Submit");
+        statusN.setActionCommand("Submit");
+        statusN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusNActionPerformed(evt);
+            }
+        });
+        jPanel11.add(statusN);
+
+        statusGroup.add(statusY);
+        statusY.setText("Approve");
+        statusY.setActionCommand("Approved");
+        jPanel11.add(statusY);
+
+        jPanel15.add(jPanel11, new java.awt.GridBagConstraints());
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel15.add(jPanel2, new java.awt.GridBagConstraints());
+
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
-        btnSave.setText("Save");
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -138,9 +171,9 @@ public class Attendance extends javax.swing.JPanel {
         });
         jPanel19.add(btnSave);
 
-        btnUpdate.setText("Update");
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -155,25 +188,25 @@ public class Attendance extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         jPanel15.add(jPanel19, gridBagConstraints);
 
-        jPanel16.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel16.setLayout(new java.awt.GridLayout());
 
-        attendanceTable.setModel(new javax.swing.table.DefaultTableModel(
+        OTTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "First Name", "Last Name", "Attendance", "Date"
+                "Id", "First Name", "Last Name", "Duration (In Minutes)", "Status", "Date"
             }
         ));
-        attendanceTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        OTTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                attendanceTableMouseClicked(evt);
+                OTTableMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(attendanceTable);
+        jScrollPane2.setViewportView(OTTable);
 
         jPanel16.add(jScrollPane2);
 
@@ -185,8 +218,11 @@ public class Attendance extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, 0)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -197,16 +233,21 @@ public class Attendance extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void statusNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statusNActionPerformed
+
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         String empId = ((ComboItem) cbStaff.getSelectedItem()).getValue();
-        String isAttend = attendanceGroup.getSelection().getActionCommand();
+        String status = statusGroup.getSelection().getActionCommand();
+        String duration = txtDuration.getText();
         String date = dDate.getDate().toString();
-        HashMap<String, String> message = AttendanceClass.AddAttendance(empId, isAttend, date);
+        HashMap<String, String> message = OvertimeClass.AddOvertime(empId, duration, status, date);
         JOptionPane.showMessageDialog(this, message.get("message"));
         if ("1".equals(message.get("code"))) {
             refreshTable();
@@ -215,50 +256,51 @@ public class Attendance extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         String empId = ((ComboItem) cbStaff.getSelectedItem()).getValue();
-        String isAttend = attendanceGroup.getSelection().getActionCommand();
+        String status = statusGroup.getSelection().getActionCommand();
+        System.out.println(status + ": status");
+        String duration = txtDuration.getText();
         String date = dDate.getDate().toString();
-        HashMap<String, String> message = AttendanceClass.UpdateAttendance(id, empId, isAttend, date);
+        HashMap<String, String> message = OvertimeClass.UpdateOvertime(id, empId, duration, status, date);
         JOptionPane.showMessageDialog(this, message.get("message"));
         if ("1".equals(message.get("code"))) {
             refreshTable();
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void attendanceTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attendanceTableMouseClicked
-        int row = attendanceTable.getSelectedRow();
-        id = attendanceTable.getValueAt(row, 0).toString();
+    private void OTTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OTTableMouseClicked
+        int row = OTTable.getSelectedRow();
+        id = OTTable.getValueAt(row, 0).toString();
         int index = 0;
         for (var staff : staffs) {
-            if (staff.get("first_name").toString().equals(attendanceTable.getValueAt(row, 1).toString()) && staff.get("last_name").toString().equals(attendanceTable.getValueAt(row, 2).toString())) {
+            if (staff.get("first_name").toString().equals(OTTable.getValueAt(row, 1).toString()) && staff.get("last_name").toString().equals(OTTable.getValueAt(row, 2).toString())) {
                 cbStaff.setSelectedIndex(index);
             }
             index++;
         }
-        if (attendanceTable.getValueAt(row, 3).toString().equals("Attend")) {
-            attendY.setSelected(true);
+        txtDuration.setText(OTTable.getValueAt(row, 3).toString());
+        if (OTTable.getValueAt(row, 4).toString().equals("Approve")) {
+            statusN.setSelected(true);
         } else {
-            attendN.setSelected(false);
+            statusY.setSelected(false);
         }
-        LocalDate thisDate = LocalDate.parse(attendanceTable.getValueAt(row, 4).toString());
+        LocalDate thisDate = LocalDate.parse(OTTable.getValueAt(row, 5).toString());
         dDate.setDate(thisDate);
-    }//GEN-LAST:event_attendanceTableMouseClicked
+    }//GEN-LAST:event_OTTableMouseClicked
 
-    private void attendYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attendYActionPerformed
+    private void txtDurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDurationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_attendYActionPerformed
+    }//GEN-LAST:event_txtDurationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton attendN;
-    private javax.swing.JRadioButton attendY;
-    private javax.swing.ButtonGroup attendanceGroup;
-    private javax.swing.JTable attendanceTable;
+    private javax.swing.JTable OTTable;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<ComboItem> cbStaff;
     private com.github.lgooddatepicker.components.DatePicker dDate;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
@@ -266,8 +308,14 @@ public class Attendance extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.ButtonGroup statusGroup;
+    private javax.swing.JRadioButton statusN;
+    private javax.swing.JRadioButton statusY;
+    private javax.swing.JTextField txtDuration;
     // End of variables declaration//GEN-END:variables
 }

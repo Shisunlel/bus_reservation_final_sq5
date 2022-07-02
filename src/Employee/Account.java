@@ -27,7 +27,6 @@ public class Account extends javax.swing.JFrame {
     ArrayList<HashMap<String, Object>> positions;
     public static JFrame frame;
     public static JPanel firstPanel;
-    public static JPanel secondPanel;
 
     private void refreshTable() {
         var employees = Employee.getAllEmployees();
@@ -60,7 +59,6 @@ public class Account extends javax.swing.JFrame {
         frame.setTitle("Home");
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         firstPanel = this.contentPanel;
-        secondPanel = this.mainPanel;
         menu.add(MenuBar.createMenu(User.User.getCurrentInstance().getPosition()));
         positions = Position.Position.getAllPositions();
         for (var position : positions) {
@@ -137,7 +135,7 @@ public class Account extends javax.swing.JFrame {
         setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        contentPanel.setLayout(new java.awt.GridLayout());
+        contentPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
@@ -275,7 +273,7 @@ public class Account extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         jPanel15.add(jPanel17, gridBagConstraints);
 
-        jPanel19.setLayout(new java.awt.GridLayout(1, 0, 5, 0));
+        jPanel19.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,6 +298,7 @@ public class Account extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         jPanel15.add(jPanel19, gridBagConstraints);
 

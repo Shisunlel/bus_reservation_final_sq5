@@ -2,6 +2,7 @@ package Global;
 
 import Employee.Account;
 import Employee.Attendance;
+import Employee.Overtime;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JMenu;
@@ -34,15 +35,36 @@ public class MenuBar {
             accountSub.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Account.firstPanel.remove(Account.secondPanel);
+                    Account.firstPanel.removeAll();
                     Account.firstPanel.add(new Account());
                 }
             });
             attendanceSub.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Account.firstPanel.remove(Account.secondPanel);
+                    Account.firstPanel.removeAll();
                     Account.firstPanel.add(new Attendance());
+                }
+            });
+            otSub.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
+            roleSub.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
+            payrollSub.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
                 }
             });
             subMenu.add(accountSub);
@@ -58,16 +80,51 @@ public class MenuBar {
             var newBookSub = new JMenuItem("New Booking");
             var manageBook = new JMenuItem("Manage Booking");
             var managePass = new JMenuItem("Manage Passenger");
+            newBookSub.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
+            manageBook.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
+            managePass.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
             subMenu.add(newBookSub);
             subMenu.add(manageBook);
             subMenu.add(managePass);
         }
         if (isAdmin || Position.Position.can("read_vehicle") != 0) {
             var subMenu = new JMenu("Vehicle");
+            subMenu.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
             menu.add(subMenu);
         }
         if (isAdmin || Position.Position.can("read_finance") != 0) {
             var subMenu = new JMenu("Financial Account");
+            subMenu.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
             menu.add(subMenu);
         }
         if (isAdmin || Position.Position.can("read_trip") != 0) {
@@ -76,12 +133,40 @@ public class MenuBar {
             var locSub = new JMenuItem("Location");
             var routeSub = new JMenuItem("Route");
             var tripSub = new JMenuItem("Trip");
+            locSub.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
+            routeSub.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
+            tripSub.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
             subMenu.add(locSub);
             subMenu.add(routeSub);
             subMenu.add(tripSub);
         }
         if (isAdmin || Position.Position.can("read_report") != 0) {
             var subMenu = new JMenu("Reports");
+            subMenu.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Account.firstPanel.removeAll();
+                    Account.firstPanel.add(new Overtime());
+                }
+            });
             menu.add(subMenu);
         }
         return menu;
