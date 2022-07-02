@@ -5,7 +5,13 @@
 
 package Employee;
 
+import Account.FinancialAccount;
+import Position.Role;
+import Vehicle.Vehicle;
+import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
@@ -14,6 +20,7 @@ import java.util.logging.Logger;
 import javaswingdev.GradientDropdownMenu;
 import javaswingdev.MenuEvent;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 /**
  *
@@ -22,7 +29,7 @@ import javax.swing.*;
 public class UITabbar extends javax.swing.JFrame {
 	private final int menuHeight;
 	private final String[] menuAccount = {"Employee", "Account", "Attendance", "Overtime", "Role and Permission", "Payroll"};
-	private final String[] menuBooking = {"Booing", "New Booking", "Manage Booking", "Manage Passenger"};
+	private final String[] menuBooking = {"Booking", "New Booking", "Manage Booking", "Manage Passenger"};
 	private final String[] menuVehicle = {"Vehicle"};
 	private final String[] menuFinancialAccount = {"Financial Account"};
 	private final String[] menuTrip = {"Trip Management", "Location", "Route", "Trip"};
@@ -37,6 +44,11 @@ public class UITabbar extends javax.swing.JFrame {
 	private final ImageIcon[] iconsReports = makeIconsArray(menuReports);
 
     public UITabbar() {
+		try {
+			UIManager.setLookAndFeel( new FlatLightLaf() );
+		} catch( Exception ex ) {
+			System.err.println( "Failed to initialize LaF" );
+		}
 		GradientDropdownMenu menu = new GradientDropdownMenu();
 		menuHeight = menu.getMenuHeight();
         initComponents();
@@ -60,12 +72,68 @@ public class UITabbar extends javax.swing.JFrame {
 				}
 			}
 		});
+		// welcome label
+		String fname = User.User.getCurrentInstance().getFirstName();
+		String lname = User.User.getCurrentInstance().getLastName();
+		JLabel lbWelcome = new JLabel("Welcome, " + fname + " " + lname + "!", JLabel.CENTER);
+		lbWelcome.setFont(new Font("Dialog.bold", Font.PLAIN, 25));
+		content.add(lbWelcome);
     }
 	void showForm(String str) {
+		this.setTitle(str);
 		content.removeAll();
+		// TODO: remove spaces to match class
 		if (str.compareTo("Account") == 0) {
-			content.add(new Account().getContentPane());
-		} // add more cases here
+			JFrame window = new Account();
+			content.add(window.getContentPane());
+			window.setVisible(false);
+		}
+		else if (str.compareTo("Attendance") == 0) {
+			content.add(new Attendance());
+		}
+		else if (str.compareTo("Overtime") == 0) {
+			content.add(new Overtime());
+		}
+		else if (str.compareTo("Role and Permission") == 0) {
+			 content.add(new Role());
+		}
+		else if (str.compareTo("Payroll") == 0) {
+			content.add(new Payroll());
+		}
+		else if (str.compareTo("New Booking") == 0) {
+			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+			// content.add(new NewBooking());
+		}
+		else if (str.compareTo("Manage Booking") == 0) {
+			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+			// content.add(new ManageBooking());
+		}
+		else if (str.compareTo("Manage Passenger") == 0) {
+			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+			// content.add(new ManagePassenger());
+		}
+		else if (str.compareTo("Vehicle") == 0) {
+			content.add(new Vehicle());
+		}
+		else if (str.compareTo("Financial Account") == 0) {
+			content.add(new FinancialAccount());
+		}
+		else if (str.compareTo("Location") == 0) {
+			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+			// content.add(new Location());
+		}
+		else if (str.compareTo("Route") == 0) {
+			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+			// content.add(new Route());
+		}
+		else if (str.compareTo("Trip") == 0) {
+			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+			// content.add(new Trip());
+		}
+		else if (str.compareTo("Reports") == 0) {
+			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+			// content.add(new Reports());
+		}
 		else {
 			System.out.println(str + " not found in showForm().");
 			JOptionPane.showMessageDialog(this, str+" content is missing or not found.");
@@ -106,18 +174,21 @@ public class UITabbar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Main Menu");
+        setMinimumSize(new java.awt.Dimension(1337, 658));
+        getContentPane().setLayout(new java.awt.GridLayout(1, 1));
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(20, 50));
-        jPanel1.setPreferredSize(new java.awt.Dimension(20, menuHeight));
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
-        getContentPane().add(content, java.awt.BorderLayout.CENTER);
+        content.setBackground(new java.awt.Color(255, 255, 255));
+        content.setBorder(new EmptyBorder(menuHeight,0,0,
+            0));
+    content.setLayout(new java.awt.GridLayout());
+    getContentPane().add(content);
 
-        setSize(new java.awt.Dimension(1151, 695));
-        setLocationRelativeTo(null);
+    pack();
+    setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
@@ -153,7 +224,6 @@ public class UITabbar extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel content;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
 }
