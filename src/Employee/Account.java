@@ -4,6 +4,7 @@
  */
 package Employee;
 
+import Global.ComboItem;
 import Global.Helper;
 import Global.MenuBar;
 import java.awt.BorderLayout;
@@ -30,7 +31,6 @@ public class Account extends javax.swing.JFrame {
 
     private void refreshTable() {
         var employees = Employee.getAllEmployees();
-        int i = 0;
         empTable = (DefaultTableModel) employeeTable.getModel();
         empTable.setRowCount(0);
         for (var employee : employees) {
@@ -46,7 +46,6 @@ public class Account extends javax.swing.JFrame {
             data[8] = employee.get("can_login").equals(true) ? "Yes" : "No";
             data[9] = employee.get("is_active").equals(true) ? "Yes" : "No";
             empTable.addRow(data);
-            i++;
         }
     }
 
@@ -315,6 +314,7 @@ public class Account extends javax.swing.JFrame {
                 "Id", "First Name", "Last Name", "Position", "Email", "Mobile", "Address", "Salary", "Can Login", "Active"
             }
         ));
+        employeeTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         employeeTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 employeeTableMouseClicked(evt);

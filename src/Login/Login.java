@@ -26,11 +26,10 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         var icon = new ImageIcon(getClass().getResource("/Image/background.jpg"));
-        icon.setImage(icon.getImage().getScaledInstance(getWidth(), getHeight()+100, Image.SCALE_SMOOTH));
-	
+        icon.setImage(icon.getImage().getScaledInstance(getWidth(), getHeight() + 100, Image.SCALE_SMOOTH));
         backgroundLabel.setIcon(icon);
-		backgroundLabel.setHorizontalAlignment(JLabel.LEFT);
-		backgroundLabel.setVerticalAlignment(JLabel.CENTER);
+        backgroundLabel.setHorizontalAlignment(JLabel.LEFT);
+        backgroundLabel.setVerticalAlignment(JLabel.CENTER);
     }
 
     /**
@@ -162,7 +161,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jLabel1.setBackground(new java.awt.Color(243, 243, 243));
@@ -216,7 +215,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
+
         String email = txtEmail.getText();
         String password = String.valueOf(txtPassword.getPassword());
 
@@ -228,7 +227,7 @@ public class Login extends javax.swing.JFrame {
             preparedStatement.setString(2, password);
 
             var resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
                 String uEmail = resultSet.getString("email");
@@ -243,20 +242,20 @@ public class Login extends javax.swing.JFrame {
                 txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(225, 0, 0), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
             }
         } catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, "Database connection error.\r\nPlease Contact Administrator.");
+            JOptionPane.showMessageDialog(this, "Database connection error.\r\nPlease Contact Administrator.");
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-		jButton1ActionPerformed(evt);
+        jButton1ActionPerformed(evt);
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
-		jButton1ActionPerformed(evt);
-		
+        jButton1ActionPerformed(evt);
+
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged

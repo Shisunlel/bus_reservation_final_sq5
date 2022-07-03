@@ -21,7 +21,7 @@ public class Employee {
         var staffs = new ArrayList<HashMap<String, Object>>();
         try {
             var stmt = DBCon.getConnection().createStatement();
-            var query = "SELECT staff.id, first_name, last_name, position.id position_id, position.name position, email, mobile, address, salary, can_login, is_active  FROM staff join position on position_id = position.id;";
+            var query = "SELECT staff.id, first_name, last_name, position.id position_id, position.name position, email, mobile, address, salary, can_login, is_active  FROM staff join position on position_id = position.id and position_id != 6;";
             var preparedStatement = stmt.getConnection().prepareStatement(query);
             var resultSet = preparedStatement.executeQuery();
             var meta = resultSet.getMetaData();

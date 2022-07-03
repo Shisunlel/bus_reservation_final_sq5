@@ -4,6 +4,7 @@
  */
 package Employee;
 
+import Global.ComboItem;
 import Global.Helper;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,7 +23,6 @@ public class Overtime extends javax.swing.JPanel {
     
     private void refreshTable() {
         var overtimes = OvertimeClass.getAllOvertimes();
-        int i = 0;
         otTable = (DefaultTableModel) OTTable.getModel();
         otTable.setRowCount(0);
         for (var ot : overtimes) {
@@ -34,7 +34,6 @@ public class Overtime extends javax.swing.JPanel {
             data[4] = ot.get("status").equals("Approved") ? "Approved" : "Submit";
             data[5] = ot.get("date");
             otTable.addRow(data);
-            i++;
         }
     }
 
@@ -188,7 +187,7 @@ public class Overtime extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         jPanel15.add(jPanel19, gridBagConstraints);
 
-        jPanel16.setLayout(new java.awt.GridLayout());
+        jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
         OTTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -201,6 +200,7 @@ public class Overtime extends javax.swing.JPanel {
                 "Id", "First Name", "Last Name", "Duration (In Minutes)", "Status", "Date"
             }
         ));
+        OTTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         OTTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 OTTableMouseClicked(evt);
@@ -218,11 +218,8 @@ public class Overtime extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, 0)))
+                    .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

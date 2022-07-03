@@ -77,7 +77,7 @@ public class OvertimeClass {
             preparedStatement.execute();
             stmt.close();
             result.put("code", "1");
-            result.put("message", "Insert Successfully");
+            result.put("message", "Update Successfully");
         } catch (SQLException ex) {
             result.put("code", "0");
             result.put("message", ex.getMessage());

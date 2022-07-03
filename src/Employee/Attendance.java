@@ -4,6 +4,7 @@
  */
 package Employee;
 
+import Global.ComboItem;
 import Global.Helper;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,7 +23,6 @@ public class Attendance extends javax.swing.JPanel {
     
     private void refreshTable() {
         var attendances = AttendanceClass.getAllAttendance();
-        int i = 0;
         attTable = (DefaultTableModel) attendanceTable.getModel();
         attTable.setRowCount(0);
         for (var attendance : attendances) {
@@ -33,7 +33,6 @@ public class Attendance extends javax.swing.JPanel {
             data[3] = attendance.get("status").equals(true) ? "Attend" : "Absence";
             data[4] = attendance.get("date");
             attTable.addRow(data);
-            i++;
         }
     }
 
@@ -168,6 +167,7 @@ public class Attendance extends javax.swing.JPanel {
                 "Id", "First Name", "Last Name", "Attendance", "Date"
             }
         ));
+        attendanceTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         attendanceTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 attendanceTableMouseClicked(evt);
