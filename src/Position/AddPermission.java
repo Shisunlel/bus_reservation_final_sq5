@@ -158,6 +158,7 @@ public class AddPermission extends javax.swing.JPanel {
                 "Id", "Permission", "Read", "Create", "Update", "Delete"
             }
         ));
+        addPermissionTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         addPermissionTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addPermissionTableMouseClicked(evt);

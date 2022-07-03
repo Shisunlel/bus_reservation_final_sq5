@@ -148,6 +148,7 @@ public class AssignPermission extends javax.swing.JPanel {
                 "Position Name", "Permission Name"
             }
         ));
+        assignPermissionTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         assignPermissionTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 assignPermissionTableMouseClicked(evt);
