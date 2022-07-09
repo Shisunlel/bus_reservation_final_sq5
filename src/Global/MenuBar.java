@@ -3,6 +3,7 @@ package Global;
 import Employee.Account;
 import Employee.Attendance;
 import Employee.Overtime;
+import Employee.Payroll;
 import Position.Position;
 import Position.Role;
 import java.awt.event.ActionEvent;
@@ -76,7 +77,7 @@ public class MenuBar {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
+                    mainPanel.add(new Payroll());
                     mainPanel.revalidate();
                     mainPanel.repaint();
                 }

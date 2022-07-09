@@ -254,7 +254,6 @@ public class Overtime extends javax.swing.JPanel {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         String empId = ((ComboItem) cbStaff.getSelectedItem()).getValue();
         String status = statusGroup.getSelection().getActionCommand();
-        System.out.println(status + ": status");
         String duration = txtDuration.getText();
         String date = dDate.getDate().toString();
         HashMap<String, String> message = OvertimeClass.UpdateOvertime(id, empId, duration, status, date);
