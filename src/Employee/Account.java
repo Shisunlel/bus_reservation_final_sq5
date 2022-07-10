@@ -7,11 +7,8 @@ package Employee;
 import Global.ComboItem;
 import Global.Helper;
 import Global.MenuBar;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -387,12 +384,12 @@ public class Account extends javax.swing.JFrame {
         if (empTable.getValueAt(row, 8).toString().equals("Yes")) {
             loginY.setSelected(true);
         } else {
-            loginN.setSelected(false);
+            loginN.setSelected(true);
         }
         if (empTable.getValueAt(row, 9).toString().equals("Yes")) {
             activeY.setSelected(true);
         } else {
-            activeN.setSelected(false);
+            activeN.setSelected(true);
         }
     }//GEN-LAST:event_employeeTableMouseClicked
 

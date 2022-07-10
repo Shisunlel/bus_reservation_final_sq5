@@ -15,8 +15,6 @@ import java.util.HashMap;
  */
 public class Position {
 
-    static int poss;
-
     public static Integer can(String position_permission) {
         int can = 0;
         try {
