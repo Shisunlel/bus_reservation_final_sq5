@@ -1,5 +1,6 @@
 package Global;
 
+import Account.FinancialAccount;
 import Employee.Account;
 import Employee.Attendance;
 import Employee.Overtime;
@@ -156,7 +157,7 @@ public class MenuBar {
                 @Override
                 public void menuSelected(MenuEvent e) {
                     mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
+                    mainPanel.add(new FinancialAccount());
                     mainPanel.revalidate();
                     mainPanel.repaint();
                 }

@@ -96,6 +96,7 @@ public class Role extends javax.swing.JPanel {
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 0, 0, 5));
 
+        btnAddPermission.setBackground(new java.awt.Color(35, 83, 143));
         btnAddPermission.setText("Add Permission");
         btnAddPermission.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +105,7 @@ public class Role extends javax.swing.JPanel {
         });
         jPanel3.add(btnAddPermission);
 
+        btnAssignPermission.setBackground(new java.awt.Color(35, 83, 143));
         btnAssignPermission.setText("Assign Permission");
         btnAssignPermission.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

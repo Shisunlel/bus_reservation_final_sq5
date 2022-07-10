@@ -207,10 +207,10 @@ public class AddPermission extends javax.swing.JPanel {
     }//GEN-LAST:event_addPermissionTableMouseClicked
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        Integer read = cbRead.getSelectedIndex() == 0 ? 1 : 0;
-        Integer create = cbCreate.getSelectedIndex() == 0 ? 1 : 0;
-        Integer update = cbUpdate.getSelectedIndex() == 0 ? 1 : 0;
-        Integer delete = cbDelete.getSelectedIndex() == 0 ? 1 : 0;
+        int read = cbRead.getSelectedIndex() == 0 ? 1 : 0;
+        int create = cbCreate.getSelectedIndex() == 0 ? 1 : 0;
+        int update = cbUpdate.getSelectedIndex() == 0 ? 1 : 0;
+        int delete = cbDelete.getSelectedIndex() == 0 ? 1 : 0;
         HashMap<String, String> message = Position.UpdatePermission(Integer.parseInt(id), read, create, update, delete);
         JOptionPane.showMessageDialog(this, message.get("message"));
         if ("1".equals(message.get("code"))) {
