@@ -54,6 +54,11 @@ public class Account extends javax.swing.JFrame {
         frame = this;
         frame.setTitle("Home");
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        menu.add(MenuBar.createMenu(User.User.getCurrentInstance().getPosition()));
+        JButton btn = new JButton();
+        btn.setText("Click");
+        contentPanel.setPreferredSize(new Dimension(640, 480));
+        contentPanel.add(btn, BorderLayout.SOUTH);
         firstPanel = this.contentPanel;
         menu.add(MenuBar.createMenu(User.User.getCurrentInstance().getPosition()));
         positions = Position.Position.getAllPositions();
@@ -63,7 +68,7 @@ public class Account extends javax.swing.JFrame {
         refreshTable();
         // positions.get(INDEX).get(KEY)
         // first get is arraylist, second get is hashmap key`
-        frame.setVisible(true);
+//        frame.setVisible(true);
     }
 
     /**
