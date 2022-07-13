@@ -179,14 +179,13 @@
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel1">
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="0"/>
+        <Property name="horizontalGap" type="int" value="30"/>
+        <Property name="rows" type="int" value="1"/>
+      </Layout>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanel2">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-              <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="2" ipadX="153" ipadY="8" insetsTop="0" insetsLeft="22" insetsBottom="0" insetsRight="22" anchor="10" weightX="1.0" weightY="0.0"/>
-            </Constraint>
-          </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -203,8 +202,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtName" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="txtName" pref="39" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -233,18 +232,13 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-              <GridBagConstraints gridX="1" gridY="0" gridWidth="2" gridHeight="1" fill="2" ipadX="153" ipadY="8" insetsTop="0" insetsLeft="22" insetsBottom="0" insetsRight="22" anchor="10" weightX="2.0" weightY="0.0"/>
-            </Constraint>
-          </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="194" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="200" max="32767" attributes="0"/>
                   </Group>
                   <Component id="txtDesc" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -254,8 +248,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtDesc" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="txtDesc" pref="39" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -284,11 +278,6 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel4">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-              <GridBagConstraints gridX="3" gridY="0" gridWidth="1" gridHeight="1" fill="2" ipadX="133" ipadY="8" insetsTop="0" insetsLeft="22" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-            </Constraint>
-          </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">

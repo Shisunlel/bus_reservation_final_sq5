@@ -48,7 +48,6 @@ public class Location extends javax.swing.JPanel {
 	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         radioGroupStatus = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -146,7 +145,7 @@ public class Location extends javax.swing.JPanel {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0, 30, 0));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Name");
@@ -168,19 +167,11 @@ public class Location extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 153;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 22, 0, 22);
-        jPanel1.add(jPanel2, gridBagConstraints);
+        jPanel1.add(jPanel2);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Description");
@@ -194,7 +185,7 @@ public class Location extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel5)
-                .addGap(0, 194, Short.MAX_VALUE))
+                .addGap(0, 200, Short.MAX_VALUE))
             .addComponent(txtDesc)
         );
         jPanel3Layout.setVerticalGroup(
@@ -202,20 +193,11 @@ public class Location extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 153;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.weightx = 2.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 22, 0, 22);
-        jPanel1.add(jPanel3, gridBagConstraints);
+        jPanel1.add(jPanel3);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Status");
@@ -250,14 +232,7 @@ public class Location extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 133;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.insets = new java.awt.Insets(0, 22, 0, 0);
-        jPanel1.add(jPanel4, gridBagConstraints);
+        jPanel1.add(jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

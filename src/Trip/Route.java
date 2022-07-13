@@ -416,6 +416,7 @@ public class Route extends javax.swing.JPanel {
 		cbDestination.removeAllItems();
 		cbOrigin.removeAllItems();
 		cbVehicle.removeAllItems();
+		vehicle = new HashMap<>();
 		try{
 			Statement st = conn.createStatement();
 			String query = "SELECT name FROM location WHERE status=1";
