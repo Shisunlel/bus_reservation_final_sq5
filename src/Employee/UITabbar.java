@@ -7,6 +7,8 @@ package Employee;
 
 import Account.FinancialAccount;
 import Position.Role;
+import Trip.Location;
+import Trip.Route;
 import Vehicle.Vehicle;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
@@ -119,12 +121,11 @@ public class UITabbar extends javax.swing.JFrame {
 			content.add(new FinancialAccount());
 		}
 		else if (str.compareTo("Location") == 0) {
-			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
-			// content.add(new Location());
+			content.add(new Location());
 		}
 		else if (str.compareTo("Route") == 0) {
-			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
-			// content.add(new Route());
+//			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+			content.add(new Route());
 		}
 		else if (str.compareTo("Trip") == 0) {
 			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
