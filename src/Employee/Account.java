@@ -63,7 +63,7 @@ public class Account extends javax.swing.JFrame {
         refreshTable();
         // positions.get(INDEX).get(KEY)
         // first get is arraylist, second get is hashmap key`
-        frame.setVisible(true);
+//        frame.setVisible(true);
     }
 
     /**

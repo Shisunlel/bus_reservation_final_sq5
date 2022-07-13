@@ -4,6 +4,7 @@
  */
 package Account;
 
+import Employee.UITabbar;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -90,6 +91,7 @@ public class FinancialAccount extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         btnTrans.setBackground(new java.awt.Color(35, 83, 143));
+        btnTrans.setForeground(new java.awt.Color(255, 255, 255));
         btnTrans.setText("Add Transaction");
         btnTrans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,8 +183,12 @@ public class FinancialAccount extends javax.swing.JPanel {
 
     private void btnTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransActionPerformed
         // TODO add your handling code here:
-        Employee.Account.firstPanel.removeAll();
-        Employee.Account.firstPanel.add(new Transaction());
+        UITabbar.content.removeAll();
+        UITabbar.content.add(new Transaction());
+        UITabbar.content.repaint();
+        UITabbar.content.revalidate();
+//        Employee.Account.firstPanel.removeAll();
+//        Employee.Account.firstPanel.add(new Transaction());
     }//GEN-LAST:event_btnTransActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

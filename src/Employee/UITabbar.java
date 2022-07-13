@@ -184,7 +184,7 @@ public class UITabbar extends javax.swing.JFrame {
         content.setBackground(new java.awt.Color(255, 255, 255));
         content.setBorder(new EmptyBorder(menuHeight,0,0,
             0));
-    content.setLayout(new java.awt.GridLayout());
+    content.setLayout(new java.awt.GridLayout(1, 0));
     getContentPane().add(content);
 
     pack();
@@ -223,7 +223,7 @@ public class UITabbar extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel content;
+    public static javax.swing.JPanel content;
     // End of variables declaration//GEN-END:variables
 
 }
