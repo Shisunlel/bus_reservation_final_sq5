@@ -161,7 +161,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jLabel1.setBackground(new java.awt.Color(243, 243, 243));
@@ -234,7 +234,7 @@ public class Login extends javax.swing.JFrame {
                 Integer positionId = resultSet.getInt("position_id");
                 Integer canLogin = resultSet.getInt("can_login");
                 User.User.getInstace(firstName, lastName, uEmail, positionId, canLogin);
-                new Account();
+				new UITabbar().setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Incorrect Email or Password!");

@@ -5,6 +5,7 @@
 package Position;
 
 import Employee.Account;
+import Employee.UITabbar;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -97,6 +98,7 @@ public class Role extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.GridLayout(2, 0, 0, 5));
 
         btnAddPermission.setBackground(new java.awt.Color(35, 83, 143));
+        btnAddPermission.setForeground(new java.awt.Color(255, 255, 255));
         btnAddPermission.setText("Add Permission");
         btnAddPermission.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +108,7 @@ public class Role extends javax.swing.JPanel {
         jPanel3.add(btnAddPermission);
 
         btnAssignPermission.setBackground(new java.awt.Color(35, 83, 143));
+        btnAssignPermission.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignPermission.setText("Assign Permission");
         btnAssignPermission.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,16 +231,24 @@ public class Role extends javax.swing.JPanel {
 
     private void btnAddPermissionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPermissionActionPerformed
         // TODO add your handling code here:
-        Account.firstPanel.removeAll();
-        Account.firstPanel.add(new AddPermission());
+        UITabbar.content.removeAll();
+        UITabbar.content.add(new AddPermission());
+        UITabbar.content.repaint();
+        UITabbar.content.revalidate();
+//        Account.firstPanel.removeAll();
+//        Account.firstPanel.add(new AddPermission());
     }//GEN-LAST:event_btnAddPermissionActionPerformed
 
     private void btnAssignPermissionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignPermissionActionPerformed
         // TODO add your handling code here:
-        Account.firstPanel.removeAll();
-        Account.firstPanel.add(new AssignPermission());
-        Account.firstPanel.revalidate();
-        Account.firstPanel.repaint();
+        UITabbar.content.removeAll();
+        UITabbar.content.add(new AssignPermission());
+        UITabbar.content.repaint();
+        UITabbar.content.revalidate();
+//        Account.firstPanel.removeAll();
+//        Account.firstPanel.add(new AssignPermission());
+//        Account.firstPanel.revalidate();
+//        Account.firstPanel.repaint();
     }//GEN-LAST:event_btnAssignPermissionActionPerformed
 
 
