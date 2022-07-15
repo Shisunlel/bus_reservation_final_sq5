@@ -33,8 +33,9 @@ public class UpdateRoute extends javax.swing.JFrame {
 			System.err.println( "Failed to initialize LaF" );
 		}
 		initComponents();
-		this.setAlwaysOnTop(true);
-		this.setResizable(false);
+		setAlwaysOnTop(true);
+		setResizable(false);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.parent = parent;
 		this.vehicle = vehicle;
 		uid = id;
