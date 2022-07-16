@@ -5,7 +5,9 @@
 
 package Employee;
 
+import java.sql.*;
 import Account.FinancialAccount;
+import Login.DBCon;
 import Position.Role;
 import Trip.*;
 import Vehicle.Vehicle;
@@ -16,8 +18,13 @@ import java.awt.Font;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 import javaswingdev.GradientDropdownMenu;
 import javaswingdev.MenuEvent;
 import javax.swing.*;
@@ -29,15 +36,16 @@ import javax.swing.border.EmptyBorder;
  */
 public class UITabbar extends javax.swing.JFrame {
 	private final int menuHeight;
-	private final String[] menuAccount = {"Employee", "Account", "Attendance", "Overtime", "Role and Permission", "Payroll"};
+	private final List<String> menuAccount = List.of("Employee", "Account", "Attendance", "Overtime", "Role and Permission", "Payroll");
+//	private final String[] menuAccount = {"Employee", "Account", "Attendance", "Overtime", "Role and Permission", "Payroll"};
 	private final String[] menuBooking = {"Booking", "New Booking", "Manage Booking", "Manage Passenger"};
 	private final String[] menuVehicle = {"Vehicle"};
 	private final String[] menuFinancialAccount = {"Financial Account"};
 	private final String[] menuTrip = {"Trip Management", "Location", "Route", "Trip"};
-	private String[] menuReports = {"Reports"};
+	private final String[] menuReports = {"Reports"};
 
 	// make sure image names in '/icons/<menu>.png' match to menu name
-	private final ImageIcon[] iconsAccount = makeIconsArray(menuAccount);
+//	private final ImageIcon[] iconsAccount = makeIconsArray(menuAccount);
 	private final ImageIcon[] iconsBooking = makeIconsArray(menuBooking);
 	private final ImageIcon[] iconsVehicle = makeIconsArray(menuVehicle);
 	private final ImageIcon[] iconsFinancialAccount = makeIconsArray(menuFinancialAccount);
@@ -57,12 +65,81 @@ public class UITabbar extends javax.swing.JFrame {
 		// menu colors
 		menu.setGradientColor(new Color(67, 161, 163), new Color(67, 161, 163));
 		menu.setBackground(new Color(52, 119, 120));
-		menu.addItem(menuAccount, iconsAccount);
-		menu.addItem(menuBooking, iconsBooking);
-		menu.addItem(menuVehicle, iconsVehicle);
-		menu.addItem(menuFinancialAccount, iconsFinancialAccount);
-		menu.addItem(menuTrip, iconsTrip);
-		menu.addItem(menuReports, iconsReports);
+//		menu.addItem(menuAccount, iconsAccount);
+//		menu.addItem(menuBooking, iconsBooking);
+//		menu.addItem(menuVehicle, iconsVehicle);
+//		menu.addItem(menuFinancialAccount, iconsFinancialAccount);
+//		menu.addItem(menuTrip, iconsTrip);
+//		menu.addItem(menuReports, iconsReports);
+		// query permission and add to menu based on that
+		Set<String> permissions = new HashSet<>();
+		try {
+			String userPosition = User.User.getCurrentInstance().getPosition();
+			Connection conn = DBCon.getConnection();
+			String query = "select permission.name from permission_position join permission on permission_id = permission.id join position on position_id = position.id where position.name = ? ";
+			PreparedStatement prepSt = conn.prepareStatement(query);
+			prepSt.setString(1, userPosition);
+			ResultSet rs = prepSt.executeQuery();
+			while (rs.next()){
+				String str = rs.getString("name");
+				permissions.add(str.substring(0, 1).toUpperCase() + str.substring(1));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace(System.err);
+		}
+
+		Set<String> permittedMenuAccount = new HashSet<>();
+		Boolean isPermissionBooking = false;
+		Boolean isPermissionVehicle = false;
+		Boolean isPermissionFinancial = false;
+		Boolean isPermissionTrip = false;
+		Boolean isPermissionReports = false;
+
+		for (String permission : permissions) {
+			if (menuAccount.contains(permission)) {
+				permittedMenuAccount.add(permission);
+			}
+			else if (permission.equals("Role")){
+				permittedMenuAccount.add("Role and Permission");
+			}
+			else if (permission.equals("Booking")) {
+				isPermissionBooking = true;
+			}
+			else if (permission.equals("Vehicle")) {
+				isPermissionVehicle = true;
+			}
+			else if (permission.equals("Finance")) {
+				isPermissionFinancial = true;
+			}
+			else if (permission.equals("Trip")) {
+				isPermissionTrip = true;
+			}
+			else if (permission.equals("Reports")) {
+				isPermissionReports = true;
+			}
+		}
+		if (!permittedMenuAccount.isEmpty()) {
+			List tmpList = List.of("Employee");
+			List<String> tmpMenuAccount = Stream.concat(tmpList.stream(), permittedMenuAccount.stream()).toList();
+			String[] tmpMenuAccount2 = tmpMenuAccount.toArray(new String[0]);
+			menu.addItem(tmpMenuAccount2, makeIconsArray(tmpMenuAccount2));
+		}
+		if (isPermissionBooking) {
+			menu.addItem(menuBooking, iconsBooking);
+		}
+		if (isPermissionVehicle) {
+			menu.addItem(menuVehicle, iconsVehicle);
+		}
+		if (isPermissionFinancial) {
+			menu.addItem(menuFinancialAccount, iconsFinancialAccount);
+		}
+		if (isPermissionTrip) {
+			menu.addItem(menuTrip, iconsTrip);
+		}
+		if (isPermissionReports) {
+			menu.addItem(menuReports, iconsReports);
+		}
 		menu.applay(this);
 		menu.addEvent(new MenuEvent() {
 			@Override

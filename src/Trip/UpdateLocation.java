@@ -31,8 +31,9 @@ public class UpdateLocation extends javax.swing.JFrame {
 			System.err.println( "Failed to initialize LaF" );
 		}
 		initComponents();
-		this.setAlwaysOnTop(true);
-		this.setResizable(false);
+		setAlwaysOnTop(true);
+		setResizable(false);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		uid = id;
 		txtName.setText(name);
 		txtDesc.setText(desc);
