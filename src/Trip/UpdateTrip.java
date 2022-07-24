@@ -366,7 +366,6 @@ public class UpdateTrip extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Integer status = 0;
 		Integer vehicle_id = vehicles.get(cbVehicle.getSelectedItem());
-		vehicle_id = vehicle_id == 1 ? 11 : 12;
 
 		String d_date = departure.getDatePicker().getDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
 		String d_time = departure.getTimePicker().getText();

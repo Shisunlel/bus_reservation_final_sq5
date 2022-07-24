@@ -401,7 +401,7 @@ public class Trip extends javax.swing.JPanel {
 		String selectedRoute = cbRoute.getSelectedItem().toString();
 		String selectedDriver = cbDriver.getSelectedItem().toString();
 
-		Integer vehicle_id = vehicles.get(selectedVehicle) == 1 ? 11 : 12;
+		Integer vehicle_id = vehicles.get(selectedVehicle);
 		Integer route_id = routes.get(selectedRoute);
 		Integer driver_id = drivers.get(selectedDriver);
 
@@ -512,12 +512,12 @@ public class Trip extends javax.swing.JPanel {
 				cbDriver.addItem(full_name);
 			}
 
-			query = "SELECT id, type FROM vehicle_type WHERE status=1";
+			query = "SELECT id, model FROM vehicle WHERE is_active=1";
 			rs = st.executeQuery(query);
 			// iterate vehicles
 			while(rs.next()) {
-				vehicles.put(rs.getString("type"), rs.getInt("id"));
-				cbVehicle.addItem(rs.getString("type"));
+				vehicles.put(rs.getString("model"), rs.getInt("id"));
+				cbVehicle.addItem(rs.getString("model"));
 			}
 
 			query = "SELECT id, name FROM route WHERE status=1";
