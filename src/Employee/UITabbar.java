@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 package Employee;
 
 import java.sql.*;
@@ -35,217 +34,149 @@ import javax.swing.border.EmptyBorder;
  * @author yarith
  */
 public class UITabbar extends javax.swing.JFrame {
-	private final int menuHeight;
-	private final List<String> menuAccount = List.of("Employee", "Account", "Attendance", "Overtime", "Role and Permission", "Payroll");
-//	private final String[] menuAccount = {"Employee", "Account", "Attendance", "Overtime", "Role and Permission", "Payroll"};
-	private final String[] menuBooking = {"Booking", "New Booking", "Manage Booking", "Manage Passenger"};
-	private final String[] menuVehicle = {"Vehicle"};
-	private final String[] menuFinancialAccount = {"Financial Account"};
-	private final String[] menuTrip = {"Trip Management", "Location", "Route", "Trip"};
-	private final String[] menuReports = {"Reports"};
 
-	// make sure image names in '/icons/<menu>.png' match to menu name
-//	private final ImageIcon[] iconsAccount = makeIconsArray(menuAccount);
-	private final ImageIcon[] iconsBooking = makeIconsArray(menuBooking);
-	private final ImageIcon[] iconsVehicle = makeIconsArray(menuVehicle);
-	private final ImageIcon[] iconsFinancialAccount = makeIconsArray(menuFinancialAccount);
-	private final ImageIcon[] iconsTrip = makeIconsArray(menuTrip);
-	private final ImageIcon[] iconsReports = makeIconsArray(menuReports);
+    private final int menuHeight;
+//    private final List<String> menuAccount = List.of("Employee", "Account", "Attendance", "Overtime", "Role and Permission", "Payroll");
+    private final String[] menuAccount = {"Employee", "Account", "Attendance", "Overtime", "Role and Permission", "Payroll"};
+    private final String[] menuBooking = {"Booking", "New Booking", "Manage Booking", "Manage Passenger"};
+    private final String[] menuVehicle = {"Vehicle"};
+    private final String[] menuFinancialAccount = {"Financial Account"};
+    private final String[] menuTrip = {"Trip Management", "Location", "Route", "Trip"};
+    private final String[] menuReports = {"Reports"};
 
-    public UITabbar() {
-		try {
-			UIManager.setLookAndFeel( new FlatLightLaf() );
-		} catch( Exception ex ) {
-			System.err.println( "Failed to initialize LaF" );
-		}
-		GradientDropdownMenu menu = new GradientDropdownMenu();
-		menuHeight = menu.getMenuHeight();
+    // make sure image names in '/icons/<menu>.png' match to menu name
+    private final ImageIcon[] iconsAccount = makeIconsArray(menuAccount);
+    private final ImageIcon[] iconsBooking = makeIconsArray(menuBooking);
+    private final ImageIcon[] iconsVehicle = makeIconsArray(menuVehicle);
+    private final ImageIcon[] iconsFinancialAccount = makeIconsArray(menuFinancialAccount);
+    private final ImageIcon[] iconsTrip = makeIconsArray(menuTrip);
+    private final ImageIcon[] iconsReports = makeIconsArray(menuReports);
+
+    public UITabbar(String role) {
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
+        }
+        GradientDropdownMenu menu = new GradientDropdownMenu();
+        menuHeight = menu.getMenuHeight();
         initComponents();
-		menu.setHeaderGradient(false);
-		// menu colors
-		menu.setGradientColor(new Color(67, 161, 163), new Color(67, 161, 163));
-		menu.setBackground(new Color(52, 119, 120));
-//		menu.addItem(menuAccount, iconsAccount);
-//		menu.addItem(menuBooking, iconsBooking);
-//		menu.addItem(menuVehicle, iconsVehicle);
-//		menu.addItem(menuFinancialAccount, iconsFinancialAccount);
-//		menu.addItem(menuTrip, iconsTrip);
-//		menu.addItem(menuReports, iconsReports);
-		// query permission and add to menu based on that
-		Set<String> permissions = new HashSet<>();
-		try {
-			String userPosition = User.User.getCurrentInstance().getPosition();
-			Connection conn = DBCon.getConnection();
-			String query = "select permission.name from permission_position join permission on permission_id = permission.id join position on position_id = position.id where position.name = ? ";
-			PreparedStatement prepSt = conn.prepareStatement(query);
-			prepSt.setString(1, userPosition);
-			ResultSet rs = prepSt.executeQuery();
-			while (rs.next()){
-				String str = rs.getString("name");
-				permissions.add(str.substring(0, 1).toUpperCase() + str.substring(1));
-			}
-		}
-		catch (SQLException e) {
-			e.printStackTrace(System.err);
-		}
-
-		Set<String> permittedMenuAccount = new HashSet<>();
-		Boolean isPermissionBooking = false;
-		Boolean isPermissionVehicle = false;
-		Boolean isPermissionFinancial = false;
-		Boolean isPermissionTrip = false;
-		Boolean isPermissionReports = false;
-
-		for (String permission : permissions) {
-			if (menuAccount.contains(permission)) {
-				permittedMenuAccount.add(permission);
-			}
-			else if (permission.equals("Role")){
-				permittedMenuAccount.add("Role and Permission");
-			}
-			else if (permission.equals("Booking")) {
-				isPermissionBooking = true;
-			}
-			else if (permission.equals("Vehicle")) {
-				isPermissionVehicle = true;
-			}
-			else if (permission.equals("Finance")) {
-				isPermissionFinancial = true;
-			}
-			else if (permission.equals("Trip")) {
-				isPermissionTrip = true;
-			}
-			else if (permission.equals("Reports")) {
-				isPermissionReports = true;
-			}
-		}
-		if (!permittedMenuAccount.isEmpty()) {
-			List tmpList = List.of("Employee");
-			List<String> tmpMenuAccount = Stream.concat(tmpList.stream(), permittedMenuAccount.stream()).toList();
-			String[] tmpMenuAccount2 = tmpMenuAccount.toArray(new String[0]);
-			menu.addItem(tmpMenuAccount2, makeIconsArray(tmpMenuAccount2));
-		}
-		if (isPermissionBooking) {
-			menu.addItem(menuBooking, iconsBooking);
-		}
-		if (isPermissionVehicle) {
-			menu.addItem(menuVehicle, iconsVehicle);
-		}
-		if (isPermissionFinancial) {
-			menu.addItem(menuFinancialAccount, iconsFinancialAccount);
-		}
-		if (isPermissionTrip) {
-			menu.addItem(menuTrip, iconsTrip);
-		}
-		if (isPermissionReports) {
-			menu.addItem(menuReports, iconsReports);
-		}
-		menu.applay(this);
-		menu.addEvent(new MenuEvent() {
-			@Override
-			public void selected(int index, int subIndex, boolean menuItem) {
-				if (menuItem) {
-					// load JFrame content according to menu name
-					showForm(menu.getMenuNameAt(index, subIndex));
-				}
-			}
-		});
-		// welcome label
-		String fname = User.User.getCurrentInstance().getFirstName();
-		String lname = User.User.getCurrentInstance().getLastName();
-		JLabel lbWelcome = new JLabel("Welcome, " + fname + " " + lname + "!", JLabel.CENTER);
-		lbWelcome.setFont(new Font("Dialog.bold", Font.PLAIN, 25));
-		content.add(lbWelcome);
+        menu.setHeaderGradient(false);
+        // menu colors
+        menu.setGradientColor(new Color(67, 161, 163), new Color(67, 161, 163));
+        menu.setBackground(new Color(52, 119, 120));
+        var isAdmin = "admin".equals(role);
+        if (isAdmin || Position.Position.can("read_account") != 0) {
+            menu.addItem(menuAccount, iconsAccount);
+        }
+        if (isAdmin || Position.Position.can("read_booking") != 0) {
+            menu.addItem(menuBooking, iconsBooking);
+        }
+        if (isAdmin || Position.Position.can("read_vehicle") != 0) {
+            menu.addItem(menuVehicle, iconsVehicle);
+        }
+        if (isAdmin || Position.Position.can("read_finance") != 0) {
+            menu.addItem(menuFinancialAccount, iconsFinancialAccount);
+        }
+        if (isAdmin || Position.Position.can("read_trip") != 0) {
+            menu.addItem(menuTrip, iconsTrip);
+        }
+        if (isAdmin || Position.Position.can("read_report") != 0) {
+            menu.addItem(menuReports, iconsReports);
+        }
+        menu.applay(this);
+        menu.addEvent(new MenuEvent() {
+            @Override
+            public void selected(int index, int subIndex, boolean menuItem) {
+                if (menuItem) {
+                    // load JFrame content according to menu name
+                    showForm(menu.getMenuNameAt(index, subIndex));
+                }
+            }
+        });
+        // welcome label
+        String fname = User.User.getCurrentInstance().getFirstName();
+        String lname = User.User.getCurrentInstance().getLastName();
+        JLabel lbWelcome = new JLabel("Welcome, " + fname + " " + lname + "!", JLabel.CENTER);
+        lbWelcome.setFont(new Font("Dialog.bold", Font.PLAIN, 25));
+        content.add(lbWelcome);
     }
-	void showForm(String str) {
-		this.setTitle(str);
-		content.removeAll();
-		// TODO: remove spaces to match class
-		if (str.compareTo("Account") == 0) {
-			JFrame window = new Account();
-			content.add(window.getContentPane());
-			window.setVisible(false);
-		}
-		else if (str.compareTo("Attendance") == 0) {
-			content.add(new Attendance());
-		}
-		else if (str.compareTo("Overtime") == 0) {
-			content.add(new Overtime());
-		}
-		else if (str.compareTo("Role and Permission") == 0) {
-			 content.add(new Role());
-		}
-		else if (str.compareTo("Payroll") == 0) {
-			content.add(new Payroll());
-		}
-		else if (str.compareTo("New Booking") == 0) {
-			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
-			// content.add(new NewBooking());
-		}
-		else if (str.compareTo("Manage Booking") == 0) {
-			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
-			// content.add(new ManageBooking());
-		}
-		else if (str.compareTo("Manage Passenger") == 0) {
-			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
-			// content.add(new ManagePassenger());
-		}
-		else if (str.compareTo("Vehicle") == 0) {
-			content.add(new Vehicle());
-		}
-		else if (str.compareTo("Financial Account") == 0) {
-			content.add(new FinancialAccount());
-		}
-		else if (str.compareTo("Location") == 0) {
-			content.add(new Location());
-		}
-		else if (str.compareTo("Route") == 0) {
-//			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
-			content.add(new Route());
-		}
-		else if (str.compareTo("Trip") == 0) {
-//			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
-			content.add(new Trip());
-		}
-		else if (str.compareTo("Reports") == 0) {
-			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
-			// content.add(new Reports());
-		}
-		else {
-			System.out.println(str + " not found in showForm().");
-			JOptionPane.showMessageDialog(this, str+" content is missing or not found.");
-		}
-		content.repaint();
-		content.revalidate();
-	}
-	ImageIcon[] makeIconsArray(String... menus){
-		ImageIcon[] iconsArr = new ImageIcon[menus.length];
-		for (int i=0; i<menus.length; i++) {
-			URL imageUrl = getClass().getResource("/icons/"+menus[i]+".png");
-			if (imageUrl == null) {
-				System.out.println("/icons/"+menus[i]+".png" + " doesn't exist.");
-				continue;
-			}
-			ImageIcon icon = new ImageIcon(imageUrl);
-			Image image = icon.getImage();
-			int imgH = image.getHeight(this);
-			int imgW = image.getWidth(this);
-			if (imgH > imgW){
-				image = image.getScaledInstance(25, -1, Image.SCALE_SMOOTH);
-			}
-			else {
-				image = image.getScaledInstance(-1, 25, Image.SCALE_SMOOTH);
-			}
-			icon.setImage(image);
-			iconsArr[i] = icon;
-		}
-		return iconsArr;
-	}
 
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
+    void showForm(String str) {
+        this.setTitle(str);
+        content.removeAll();
+        // TODO: remove spaces to match class
+        if (str.compareTo("Account") == 0) {
+            JFrame window = new Account();
+            content.add(window.getContentPane());
+            window.setVisible(false);
+        } else if (str.compareTo("Attendance") == 0) {
+            content.add(new Attendance());
+        } else if (str.compareTo("Overtime") == 0) {
+            content.add(new Overtime());
+        } else if (str.compareTo("Role and Permission") == 0) {
+            content.add(new Role());
+        } else if (str.compareTo("Payroll") == 0) {
+            content.add(new Payroll());
+        } else if (str.compareTo("New Booking") == 0) {
+            JOptionPane.showMessageDialog(this, str + " content has not added yet.");
+            // content.add(new NewBooking());
+        } else if (str.compareTo("Manage Booking") == 0) {
+            JOptionPane.showMessageDialog(this, str + " content has not added yet.");
+            // content.add(new ManageBooking());
+        } else if (str.compareTo("Manage Passenger") == 0) {
+            JOptionPane.showMessageDialog(this, str + " content has not added yet.");
+            // content.add(new ManagePassenger());
+        } else if (str.compareTo("Vehicle") == 0) {
+            content.add(new Vehicle());
+        } else if (str.compareTo("Financial Account") == 0) {
+            content.add(new FinancialAccount());
+        } else if (str.compareTo("Location") == 0) {
+            content.add(new Location());
+        } else if (str.compareTo("Route") == 0) {
+//			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+            content.add(new Route());
+        } else if (str.compareTo("Trip") == 0) {
+//			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
+            content.add(new Trip());
+        } else if (str.compareTo("Reports") == 0) {
+            JOptionPane.showMessageDialog(this, str + " content has not added yet.");
+            // content.add(new Reports());
+        } else {
+            System.out.println(str + " not found in showForm().");
+            JOptionPane.showMessageDialog(this, str + " content is missing or not found.");
+        }
+        content.repaint();
+        content.revalidate();
+    }
+
+    ImageIcon[] makeIconsArray(String... menus) {
+        ImageIcon[] iconsArr = new ImageIcon[menus.length];
+        for (int i = 0; i < menus.length; i++) {
+            URL imageUrl = getClass().getResource("/icons/" + menus[i] + ".png");
+            if (imageUrl == null) {
+                System.out.println("/icons/" + menus[i] + ".png" + " doesn't exist.");
+                continue;
+            }
+            ImageIcon icon = new ImageIcon(imageUrl);
+            Image image = icon.getImage();
+            int imgH = image.getHeight(this);
+            int imgW = image.getWidth(this);
+            if (imgH > imgW) {
+                image = image.getScaledInstance(25, -1, Image.SCALE_SMOOTH);
+            } else {
+                image = image.getScaledInstance(-1, 25, Image.SCALE_SMOOTH);
+            }
+            icon.setImage(image);
+            iconsArr[i] = icon;
+        }
+        return iconsArr;
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -295,7 +226,7 @@ public class UITabbar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UITabbar().setVisible(true);
+                new UITabbar(User.User.getCurrentInstance().getPosition()).setVisible(true);
             }
         });
     }

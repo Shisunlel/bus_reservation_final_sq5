@@ -51,11 +51,6 @@ public class Account extends javax.swing.JFrame {
      */
     public Account() {
         initComponents();
-        frame = this;
-        frame.setTitle("Home");
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        firstPanel = this.contentPanel;
-        menu.add(MenuBar.createMenu(User.User.getCurrentInstance().getPosition()));
         positions = Position.Position.getAllPositions();
         for (var position : positions) {
             cbPosition.addItem(new ComboItem(Helper.toUpperCase(position.get("name").toString()), position.get("id").toString()));
@@ -63,7 +58,6 @@ public class Account extends javax.swing.JFrame {
         refreshTable();
         // positions.get(INDEX).get(KEY)
         // first get is arraylist, second get is hashmap key`
-//        frame.setVisible(true);
     }
 
     /**
