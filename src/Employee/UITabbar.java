@@ -4,27 +4,16 @@
  */
 package Employee;
 
-import java.sql.*;
 import Account.FinancialAccount;
-import Login.DBCon;
 import Passenger.ManagePassenger;
 import Position.Role;
 import Trip.*;
 import Vehicle.Vehicle;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.Image;
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.stream.Stream;
 import javaswingdev.GradientDropdownMenu;
 import javaswingdev.MenuEvent;
 import javax.swing.*;
@@ -126,7 +115,7 @@ public class UITabbar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, str + " content has not added yet.");
             // content.add(new ManageBooking());
         } else if (str.compareTo("Manage Passenger") == 0) {
-             content.add(new ManagePassenger());
+            content.add(new ManagePassenger());
         } else if (str.compareTo("Vehicle") == 0) {
             content.add(new Vehicle());
         } else if (str.compareTo("Financial Account") == 0) {
@@ -153,7 +142,8 @@ public class UITabbar extends javax.swing.JFrame {
     ImageIcon[] makeIconsArray(String... menus) {
         ImageIcon[] iconsArr = new ImageIcon[menus.length];
         for (int i = 0; i < menus.length; i++) {
-            URL imageUrl = getClass().getResource("/icons/" + menus[i] + ".png");
+//            String imageUrl = "src/icons/" + menus[i] + ".png";
+            String imageUrl = null;
             if (imageUrl == null) {
                 System.out.println("/icons/" + menus[i] + ".png" + " doesn't exist.");
                 continue;
