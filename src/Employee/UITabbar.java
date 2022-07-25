@@ -7,6 +7,7 @@ package Employee;
 import java.sql.*;
 import Account.FinancialAccount;
 import Login.DBCon;
+import Passenger.ManagePassenger;
 import Position.Role;
 import Trip.*;
 import Vehicle.Vehicle;
@@ -125,8 +126,7 @@ public class UITabbar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, str + " content has not added yet.");
             // content.add(new ManageBooking());
         } else if (str.compareTo("Manage Passenger") == 0) {
-            JOptionPane.showMessageDialog(this, str + " content has not added yet.");
-            // content.add(new ManagePassenger());
+             content.add(new ManagePassenger());
         } else if (str.compareTo("Vehicle") == 0) {
             content.add(new Vehicle());
         } else if (str.compareTo("Financial Account") == 0) {
