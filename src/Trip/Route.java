@@ -408,6 +408,10 @@ public class Route extends javax.swing.JPanel {
         Integer vehicle_type_id = vehicle.get(vehicle_selected);
         String origin = cbOrigin.getSelectedItem().toString();
         String destination = cbDestination.getSelectedItem().toString();
+        if (origin == "Select" || destination == "Select") {
+            JOptionPane.showMessageDialog(this, "Please select location");
+            return;
+        }
         double price = 0;
         Integer status = 0;
         String name = txtName.getText();
