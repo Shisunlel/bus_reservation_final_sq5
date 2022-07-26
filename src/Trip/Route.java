@@ -44,14 +44,19 @@ public class Route extends javax.swing.JPanel {
     private ItemListener cbOriginChange() {
         return (e) -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
-                cbDestination.removeItemListener(cbDestination.getItemListeners()[cbDestination.getItemListeners().length - 1]);
-                cbDestination.removeAllItems();
-                List locationsList = new ArrayList(locations);
-                locationsList.remove(e.getItem().toString());
-                for (var location : locationsList) {
-                    cbDestination.addItem(location.toString());
+                if (e.getItem().toString() != "Select") {
+                    Object selected = cbDestination.getSelectedItem();
+                    cbDestination.removeItemListener(cbDestination.getItemListeners()[0]);
+                    cbDestination.removeAllItems();
+                    List locationsList = new ArrayList(locations);
+                    locationsList.remove(e.getItem().toString());
+                    cbDestination.addItem("Select");
+                    for (var location : locationsList) {
+                        cbDestination.addItem(location.toString());
+                    }
+                    cbDestination.setSelectedItem(selected);
+                    cbDestination.addItemListener(cbDestinationChange());
                 }
-                cbDestination.addItemListener(cbDestinationChange());
             }
         };
     }
@@ -59,14 +64,19 @@ public class Route extends javax.swing.JPanel {
     private ItemListener cbDestinationChange() {
         return (e) -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
-                cbOrigin.removeItemListener(cbOrigin.getItemListeners()[cbOrigin.getItemListeners().length - 1]);
-                cbOrigin.removeAllItems();
-                List locationsList = new ArrayList(locations);
-                locationsList.remove(e.getItem().toString());
-                for (var location : locationsList) {
-                    cbOrigin.addItem(location.toString());
+                if (e.getItem().toString() != "Select") {
+                    Object selected = cbOrigin.getSelectedItem();
+                    cbOrigin.removeItemListener(cbOrigin.getItemListeners()[0]);
+                    cbOrigin.removeAllItems();
+                    List locationsList = new ArrayList(locations);
+                    locationsList.remove(e.getItem().toString());
+                    cbOrigin.addItem("Select");
+                    for (var location : locationsList) {
+                        cbOrigin.addItem(location.toString());
+                    }
+                    cbOrigin.setSelectedItem(selected);
+                    cbOrigin.addItemListener(cbOriginChange());
                 }
-                cbOrigin.addItemListener(cbOriginChange());
             }
         };
     }
@@ -452,6 +462,8 @@ public class Route extends javax.swing.JPanel {
             Statement st = conn.createStatement();
             String query = "SELECT name FROM location WHERE status=1";
             ResultSet rs = st.executeQuery(query);
+            cbDestination.addItem("Select");
+            cbOrigin.addItem("Select");
             while (rs.next()) {
                 String name = rs.getString("name");
                 cbDestination.addItem(name);
