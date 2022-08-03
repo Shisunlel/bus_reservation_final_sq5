@@ -9,11 +9,9 @@ import Position.Position;
 import Position.Role;
 import Vehicle.Vehicle;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
@@ -41,50 +39,35 @@ public class MenuBar {
             var otSub = new JMenuItem("Overtime");
             var roleSub = new JMenuItem("Role And Permission");
             var payrollSub = new JMenuItem("Payroll");
-            accountSub.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Account());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            accountSub.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Account());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
-            attendanceSub.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Attendance());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            attendanceSub.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Attendance());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
-            otSub.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            otSub.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Overtime());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
-            roleSub.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Role());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            roleSub.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Role());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
-            payrollSub.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Payroll());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            payrollSub.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Payroll());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
             subMenu.add(accountSub);
             subMenu.add(attendanceSub);
@@ -99,32 +82,23 @@ public class MenuBar {
             var newBookSub = new JMenuItem("New Booking");
             var manageBook = new JMenuItem("Manage Booking");
             var managePass = new JMenuItem("Manage Passenger");
-            newBookSub.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            newBookSub.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Overtime());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
-            manageBook.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            manageBook.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Overtime());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
-            managePass.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            managePass.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Overtime());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
             subMenu.add(newBookSub);
             subMenu.add(manageBook);
@@ -169,7 +143,7 @@ public class MenuBar {
                 @Override
                 public void menuCanceled(MenuEvent e) {
                 }
-                
+
             });
             menu.add(subMenu);
         }
@@ -179,32 +153,23 @@ public class MenuBar {
             var locSub = new JMenuItem("Location");
             var routeSub = new JMenuItem("Route");
             var tripSub = new JMenuItem("Trip");
-            locSub.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            locSub.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Overtime());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
-            routeSub.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            routeSub.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Overtime());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
-            tripSub.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            tripSub.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Overtime());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
             subMenu.add(locSub);
             subMenu.add(routeSub);
@@ -212,14 +177,11 @@ public class MenuBar {
         }
         if (isAdmin || Position.can("read_report") != 0) {
             var subMenu = new JMenu("Reports");
-            subMenu.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.removeAll();
-                    mainPanel.add(new Overtime());
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
+            subMenu.addActionListener((ActionEvent e) -> {
+                mainPanel.removeAll();
+                mainPanel.add(new Overtime());
+                mainPanel.revalidate();
+                mainPanel.repaint();
             });
             menu.add(subMenu);
         }

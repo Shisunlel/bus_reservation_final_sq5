@@ -5,6 +5,7 @@
 package Employee;
 
 import Account.FinancialAccount;
+import Booking.NewBooking;
 import Passenger.ManagePassenger;
 import Position.Role;
 import Trip.*;
@@ -109,8 +110,7 @@ public class UITabbar extends javax.swing.JFrame {
         } else if (str.compareTo("Payroll") == 0) {
             content.add(new Payroll());
         } else if (str.compareTo("New Booking") == 0) {
-            JOptionPane.showMessageDialog(this, str + " content has not added yet.");
-            // content.add(new NewBooking());
+            content.add(new NewBooking());
         } else if (str.compareTo("Manage Booking") == 0) {
             JOptionPane.showMessageDialog(this, str + " content has not added yet.");
             // content.add(new ManageBooking());
@@ -123,10 +123,8 @@ public class UITabbar extends javax.swing.JFrame {
         } else if (str.compareTo("Location") == 0) {
             content.add(new Location());
         } else if (str.compareTo("Route") == 0) {
-//			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
             content.add(new Route());
         } else if (str.compareTo("Trip") == 0) {
-//			JOptionPane.showMessageDialog(this, str+" content has not added yet.");
             content.add(new Trip());
         } else if (str.compareTo("Reports") == 0) {
             JOptionPane.showMessageDialog(this, str + " content has not added yet.");
@@ -142,8 +140,7 @@ public class UITabbar extends javax.swing.JFrame {
     ImageIcon[] makeIconsArray(String... menus) {
         ImageIcon[] iconsArr = new ImageIcon[menus.length];
         for (int i = 0; i < menus.length; i++) {
-//            String imageUrl = "src/icons/" + menus[i] + ".png";
-            String imageUrl = null;
+            URL imageUrl = getClass().getResource("/icons/" + menus[i] + ".png");
             if (imageUrl == null) {
                 System.out.println("/icons/" + menus[i] + ".png" + " doesn't exist.");
                 continue;
