@@ -5,9 +5,11 @@
 package Employee;
 
 import Account.FinancialAccount;
+import Booking.ManageBooking;
 import Booking.NewBooking;
 import Passenger.ManagePassenger;
 import Position.Role;
+import Report.Reports;
 import Trip.*;
 import Vehicle.Vehicle;
 import com.formdev.flatlaf.FlatLightLaf;
@@ -112,8 +114,7 @@ public class UITabbar extends javax.swing.JFrame {
         } else if (str.compareTo("New Booking") == 0) {
             content.add(new NewBooking());
         } else if (str.compareTo("Manage Booking") == 0) {
-            JOptionPane.showMessageDialog(this, str + " content has not added yet.");
-            // content.add(new ManageBooking());
+            content.add(new ManageBooking());
         } else if (str.compareTo("Manage Passenger") == 0) {
             content.add(new ManagePassenger());
         } else if (str.compareTo("Vehicle") == 0) {
@@ -127,8 +128,7 @@ public class UITabbar extends javax.swing.JFrame {
         } else if (str.compareTo("Trip") == 0) {
             content.add(new Trip());
         } else if (str.compareTo("Reports") == 0) {
-            JOptionPane.showMessageDialog(this, str + " content has not added yet.");
-            // content.add(new Reports());
+            content.add(new Reports());
         } else {
             System.out.println(str + " not found in showForm().");
             JOptionPane.showMessageDialog(this, str + " content is missing or not found.");

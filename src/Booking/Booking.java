@@ -114,4 +114,59 @@ public class Booking {
         }
         return result;
     }
+    
+    public static HashMap<String, Object> findBooking(int book_id) {
+        var availableTrips = new HashMap<String, Object>();
+        try {
+            var stmt = DBCon.getConnection().createStatement();
+            var query = "SELECT booking.id, model, origin, destination, type, booking.price, seat_no, date_format(start_date, '%W, %d-%m-%Y %p %h:%i') start_date FROM bus_reservation.booking join trip on trip_id = trip.id join vehicle on vehicle_id = vehicle.id join route on route_id = route.id join vehicle_type on route.vehicle_type_id = vehicle_type.id where booking.id = ?";
+            var preparedStatement = stmt.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, book_id);
+            var resultSet = preparedStatement.executeQuery();
+            var meta = resultSet.getMetaData();
+            var cols = new ArrayList<String>();
+            for (int i = 1; i <= meta.getColumnCount(); i++) {
+                cols.add(meta.getColumnName(i));
+            }
+            while (resultSet.next()) {
+                for (String colName : cols) {
+                    var val = resultSet.getObject(colName);
+                    availableTrips.put(colName, val);
+                }
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return availableTrips;
+    }
+    
+    public static ArrayList<HashMap<String, Object>> getReports(String from, String to) {
+        var report = new ArrayList<HashMap<String, Object>>();
+        try {
+            var stmt = DBCon.getConnection().createStatement();
+            var query = "SELECT booking.id, date_format(date, '%Y-%m-%d') date, origin, destination, total_seat, booking.price FROM booking join trip on trip_id = trip.id join route on route_id = route.id where date between ? and ?;";
+            var preparedStatement = stmt.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, from);
+            preparedStatement.setString(2, to);
+            var resultSet = preparedStatement.executeQuery();
+            var meta = resultSet.getMetaData();
+            var cols = new ArrayList<String>();
+            for (int i = 1; i <= meta.getColumnCount(); i++) {
+                cols.add(meta.getColumnName(i));
+            }
+            while (resultSet.next()) {
+                var row = new HashMap<String, Object>();
+                for (String colName : cols) {
+                    var val = resultSet.getObject(colName);
+                    row.put(colName, val);
+                }
+                report.add(row);
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return report;
+    }
 }
