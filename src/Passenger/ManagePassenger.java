@@ -70,9 +70,11 @@ public class ManagePassenger extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel3.setText("First Name");
         jPanel4.add(jLabel3);
 
+        txtFirstName.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtFirstName.setText("Jessi");
         jPanel4.add(txtFirstName);
 
@@ -80,9 +82,11 @@ public class ManagePassenger extends javax.swing.JPanel {
 
         jPanel11.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel8.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel8.setText("Last Name");
         jPanel11.add(jLabel8);
 
+        txtLastName.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtLastName.setText("Martini");
         jPanel11.add(txtLastName);
 
@@ -90,9 +94,11 @@ public class ManagePassenger extends javax.swing.JPanel {
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel2.setText("Phone");
         jPanel3.add(jLabel2);
 
+        txtPhone.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtPhone.setText("012 324 456");
         jPanel3.add(txtPhone);
 
@@ -103,6 +109,7 @@ public class ManagePassenger extends javax.swing.JPanel {
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -112,9 +119,10 @@ public class ManagePassenger extends javax.swing.JPanel {
         });
         jPanel19.add(btnSave);
 
-        btnUpdate.setText("Update");
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -129,8 +137,9 @@ public class ManagePassenger extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         jPanel15.add(jPanel19, gridBagConstraints);
 
-        jPanel16.setLayout(new java.awt.GridLayout());
+        jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
+        passengerTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         passengerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -172,7 +181,7 @@ public class ManagePassenger extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

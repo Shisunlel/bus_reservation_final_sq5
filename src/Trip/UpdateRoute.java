@@ -90,7 +90,7 @@ public class UpdateRoute extends javax.swing.JFrame {
         setTitle("Update Location");
 
         jButton1.setBackground(new java.awt.Color(35, 175, 121));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Confirm");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -102,7 +102,7 @@ public class UpdateRoute extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Cancel");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -115,10 +115,10 @@ public class UpdateRoute extends javax.swing.JFrame {
 
         jPanel5.setLayout(new java.awt.GridLayout(3, 2, 20, 20));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel7.setText("Name");
 
-        txtName1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtName1.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtName1.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 6, 6));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -141,9 +141,10 @@ public class UpdateRoute extends javax.swing.JFrame {
 
         jPanel5.add(jPanel6);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel8.setText("Origin");
 
+        cbOrigin.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         cbOrigin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -152,7 +153,7 @@ public class UpdateRoute extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jLabel8)
-                .addGap(0, 228, Short.MAX_VALUE))
+                .addGap(0, 220, Short.MAX_VALUE))
             .addComponent(cbOrigin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
@@ -166,9 +167,10 @@ public class UpdateRoute extends javax.swing.JFrame {
 
         jPanel5.add(jPanel7);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel9.setText("Destination");
 
+        cbDestination.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         cbDestination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -177,7 +179,7 @@ public class UpdateRoute extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jLabel9)
-                .addGap(0, 200, Short.MAX_VALUE))
+                .addGap(0, 184, Short.MAX_VALUE))
             .addComponent(cbDestination, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
@@ -191,9 +193,10 @@ public class UpdateRoute extends javax.swing.JFrame {
 
         jPanel5.add(jPanel8);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel10.setText("Vehicle Type");
 
+        cbVehicle.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         cbVehicle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -202,7 +205,7 @@ public class UpdateRoute extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addComponent(jLabel10)
-                .addGap(0, 191, Short.MAX_VALUE))
+                .addGap(0, 174, Short.MAX_VALUE))
             .addComponent(cbVehicle, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
@@ -216,10 +219,10 @@ public class UpdateRoute extends javax.swing.JFrame {
 
         jPanel5.add(jPanel9);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel11.setText("Price");
 
-        txtPrice.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtPrice.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtPrice.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 6, 6));
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -228,7 +231,7 @@ public class UpdateRoute extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addComponent(jLabel11)
-                .addGap(0, 233, Short.MAX_VALUE))
+                .addGap(0, 226, Short.MAX_VALUE))
             .addComponent(txtPrice)
         );
         jPanel10Layout.setVerticalGroup(
@@ -242,13 +245,15 @@ public class UpdateRoute extends javax.swing.JFrame {
 
         jPanel5.add(jPanel10);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel12.setText("Status");
 
         buttonGroup1.add(rdbtnActive1);
+        rdbtnActive1.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         rdbtnActive1.setText("Active");
 
         buttonGroup1.add(rdbtnInactive1);
+        rdbtnInactive1.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         rdbtnInactive1.setText("Inactive");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);

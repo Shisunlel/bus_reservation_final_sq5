@@ -58,7 +58,6 @@ public class AssignPermission extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -80,16 +79,22 @@ public class AssignPermission extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel3.setText("Position");
         jPanel4.add(jLabel3);
+
+        cbPosition.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel4.add(cbPosition);
 
         jPanel1.add(jPanel4);
 
         jPanel5.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel4.setText("Permission");
         jPanel5.add(jLabel4);
+
+        cbPermission.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel5.add(cbPermission);
 
         jPanel1.add(jPanel5);
@@ -100,7 +105,7 @@ public class AssignPermission extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 154, Short.MAX_VALUE)
+            .addGap(0, 184, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,6 +117,7 @@ public class AssignPermission extends javax.swing.JPanel {
         jPanel20.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +128,7 @@ public class AssignPermission extends javax.swing.JPanel {
         jPanel20.add(btnSave);
 
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -135,8 +142,9 @@ public class AssignPermission extends javax.swing.JPanel {
 
         jPanel1.add(jPanel3);
 
-        jPanel16.setLayout(new java.awt.GridLayout());
+        jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
+        assignPermissionTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         assignPermissionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},

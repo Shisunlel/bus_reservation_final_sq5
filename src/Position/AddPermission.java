@@ -79,9 +79,11 @@ public class AddPermission extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel1.setText("Name");
         jPanel2.add(jLabel1);
 
+        txtName.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtName.setText("Employee");
         jPanel2.add(txtName);
 
@@ -89,9 +91,11 @@ public class AddPermission extends javax.swing.JPanel {
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel2.setText("Read");
         jPanel3.add(jLabel2);
 
+        cbRead.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         cbRead.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
         jPanel3.add(cbRead);
 
@@ -99,9 +103,11 @@ public class AddPermission extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel3.setText("Create");
         jPanel4.add(jLabel3);
 
+        cbCreate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         cbCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
         jPanel4.add(cbCreate);
 
@@ -111,9 +117,11 @@ public class AddPermission extends javax.swing.JPanel {
 
         jPanel6.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel4.setText("Update");
         jPanel6.add(jLabel4);
 
+        cbUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         cbUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
         jPanel6.add(cbUpdate);
 
@@ -121,9 +129,11 @@ public class AddPermission extends javax.swing.JPanel {
 
         jPanel7.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel5.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel5.setText("Delete");
         jPanel7.add(jLabel5);
 
+        cbDelete.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         cbDelete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
         jPanel7.add(cbDelete);
 
@@ -132,6 +142,7 @@ public class AddPermission extends javax.swing.JPanel {
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -140,13 +151,14 @@ public class AddPermission extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_LEADING;
         jPanel8.add(btnUpdate, gridBagConstraints);
 
         jPanel5.add(jPanel8);
 
         jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
+        addPermissionTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         addPermissionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

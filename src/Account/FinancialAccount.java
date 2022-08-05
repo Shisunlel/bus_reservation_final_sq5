@@ -70,9 +70,11 @@ public class FinancialAccount extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel3.setText("Name");
         jPanel4.add(jLabel3);
 
+        txtName.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtName.setText("Electricity");
         jPanel4.add(txtName);
 
@@ -80,9 +82,11 @@ public class FinancialAccount extends javax.swing.JPanel {
 
         jPanel5.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel4.setText("Type");
         jPanel5.add(jLabel4);
 
+        cbType.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Expense", "Income" }));
         jPanel5.add(cbType);
 
@@ -91,6 +95,7 @@ public class FinancialAccount extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         btnTrans.setBackground(new java.awt.Color(35, 83, 143));
+        btnTrans.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnTrans.setForeground(new java.awt.Color(255, 255, 255));
         btnTrans.setText("Add Transaction");
         btnTrans.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +112,7 @@ public class FinancialAccount extends javax.swing.JPanel {
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +123,7 @@ public class FinancialAccount extends javax.swing.JPanel {
         jPanel19.add(btnSave);
 
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +142,7 @@ public class FinancialAccount extends javax.swing.JPanel {
 
         jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
+        accountTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         accountTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -176,7 +184,7 @@ public class FinancialAccount extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

@@ -9,6 +9,7 @@ import Global.Helper;
 import Vehicle.VehicleClass;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -93,8 +94,10 @@ public class NewBooking extends javax.swing.JPanel {
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel3.setText("Trip");
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel4.add(jLabel3);
 
+        cbTrip.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel4.add(cbTrip);
 
         jPanel1.add(jPanel4);
@@ -102,7 +105,10 @@ public class NewBooking extends javax.swing.JPanel {
         jPanel5.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel4.setText("Date");
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel5.add(jLabel4);
+
+        dDate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel5.add(dDate);
 
         jPanel1.add(jPanel5);
@@ -135,6 +141,7 @@ public class NewBooking extends javax.swing.JPanel {
                 "Id", "Vehicle", "Origin", "Destination", "Vehicle Type", "Price", "Available Seats"
             }
         ));
+        bookingTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         bookingTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         bookingTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -151,6 +158,7 @@ public class NewBooking extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
 
         seatPanel.setBackground(new java.awt.Color(255, 255, 255));
+        seatPanel.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         seatPanel.setLayout(new java.awt.GridLayout(2, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -165,7 +173,10 @@ public class NewBooking extends javax.swing.JPanel {
         jPanel6.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel1.setText("Passenger");
+        jLabel1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel6.add(jLabel1);
+
+        cbPassenger.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel6.add(cbPassenger);
 
         actionPanel.add(jPanel6);
@@ -173,17 +184,20 @@ public class NewBooking extends javax.swing.JPanel {
         jPanel7.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel2.setText("Total");
+        jLabel2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel7.add(jLabel2);
 
         txtTotal.setEditable(false);
         txtTotal.setText("0");
+        txtTotal.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel7.add(txtTotal);
 
         actionPanel.add(jPanel7);
 
-        btnSave.setBackground(new java.awt.Color(0, 72, 217));
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
+        btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,6 +300,7 @@ public class NewBooking extends javax.swing.JPanel {
                 toggleButton.setBackground(new Color(0, 72, 217));
             }
             toggleButton.setPreferredSize(new Dimension(40, 40));
+            toggleButton.setFont(new Font("Inter", Font.PLAIN, 16));
             toggleButton.setBorder(BorderFactory.createCompoundBorder(new LineBorder(new Color(0, 72, 217)), BorderFactory.createEmptyBorder(0, 5, 0, 0)));
             toggleButton.addItemListener((e) -> {
                 float total = Float.parseFloat(txtTotal.getText());

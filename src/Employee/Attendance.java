@@ -85,8 +85,10 @@ public class Attendance extends javax.swing.JPanel {
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel3.setText("Staff");
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel4.add(jLabel3);
 
+        cbStaff.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel4.add(cbStaff);
 
         jPanel1.add(jPanel4);
@@ -94,10 +96,12 @@ public class Attendance extends javax.swing.JPanel {
         jPanel11.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel8.setText("Attendance");
+        jLabel8.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel11.add(jLabel8);
         jPanel11.add(jPanel13);
 
         attendanceGroup.add(attendY);
+        attendY.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         attendY.setSelected(true);
         attendY.setText("Attend");
         attendY.setActionCommand("1");
@@ -109,6 +113,7 @@ public class Attendance extends javax.swing.JPanel {
         jPanel11.add(attendY);
 
         attendanceGroup.add(attendN);
+        attendN.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         attendN.setText("Absence");
         attendN.setActionCommand("0");
         jPanel11.add(attendN);
@@ -118,7 +123,10 @@ public class Attendance extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel2.setText("Date");
+        jLabel2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel3.add(jLabel2);
+
+        dDate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel3.add(dDate);
 
         jPanel1.add(jPanel3);
@@ -129,6 +137,7 @@ public class Attendance extends javax.swing.JPanel {
 
         btnSave.setText("Save");
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +148,7 @@ public class Attendance extends javax.swing.JPanel {
 
         btnUpdate.setText("Update");
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,6 +177,7 @@ public class Attendance extends javax.swing.JPanel {
                 "Id", "First Name", "Last Name", "Attendance", "Date"
             }
         ));
+        attendanceTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         attendanceTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         attendanceTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -197,7 +208,7 @@ public class Attendance extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

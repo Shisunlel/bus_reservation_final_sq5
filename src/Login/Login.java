@@ -86,7 +86,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(379, 359));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("E-mail:");
         jLabel2.setAlignmentX(1.0F);
@@ -94,7 +94,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setMaximumSize(new java.awt.Dimension(50, 30));
         jLabel2.setPreferredSize(new java.awt.Dimension(1, 23));
 
-        txtEmail.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(89, 89, 89));
         txtEmail.setText("mail@mail.com");
         txtEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(225, 225, 225), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
@@ -109,12 +109,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel3.setText("Password:");
         jLabel3.setMaximumSize(new java.awt.Dimension(10, 13));
         jLabel3.setPreferredSize(new java.awt.Dimension(40, 13));
 
-        txtPassword.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtPassword.setText("123");
         txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(225, 225, 225), 1, true), javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0)));
         txtPassword.setMaximumSize(new java.awt.Dimension(100, 50));
@@ -126,7 +126,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jButton1.setBackground(new java.awt.Color(48, 192, 79));
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("LOGIN");
         jButton1.setBorder(null);

@@ -98,8 +98,10 @@ public class Payroll extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel1.setText("Staff");
+        jLabel1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel2.add(jLabel1);
 
+        cbStaff.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel2.add(cbStaff);
 
         jPanel1.add(jPanel2);
@@ -107,8 +109,10 @@ public class Payroll extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel2.setText("Amount");
+        jLabel2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel3.add(jLabel2);
 
+        txtAmount.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtAmount.setText("250");
         jPanel3.add(txtAmount);
 
@@ -117,8 +121,10 @@ public class Payroll extends javax.swing.JPanel {
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel3.setText("Bonus");
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel4.add(jLabel3);
 
+        txtBonus.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtBonus.setText("0");
         jPanel4.add(txtBonus);
 
@@ -129,8 +135,10 @@ public class Payroll extends javax.swing.JPanel {
         jPanel6.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel4.setText("Deduction");
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel6.add(jLabel4);
 
+        txtDeduction.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtDeduction.setText("0");
         jPanel6.add(txtDeduction);
 
@@ -139,8 +147,10 @@ public class Payroll extends javax.swing.JPanel {
         jPanel7.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel5.setText("Exchange Rate");
+        jLabel5.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel7.add(jLabel5);
 
+        txtExchange.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtExchange.setText("4000");
         jPanel7.add(txtExchange);
 
@@ -149,7 +159,10 @@ public class Payroll extends javax.swing.JPanel {
         jPanel8.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel6.setText("Date");
+        jLabel6.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel8.add(jLabel6);
+
+        dDate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel8.add(dDate);
 
         jPanel5.add(jPanel8);
@@ -186,6 +199,7 @@ public class Payroll extends javax.swing.JPanel {
 
         btnSave.setText("Save");
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,6 +210,7 @@ public class Payroll extends javax.swing.JPanel {
 
         btnUpdate.setText("Update");
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,6 +239,7 @@ public class Payroll extends javax.swing.JPanel {
                 "Id", "Staff Name", "Date", "Amount", "Bonus", "Deduction", "Exchange Rate", "Total USD", "Total KHR"
             }
         ));
+        payrollTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         payrollTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         payrollTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

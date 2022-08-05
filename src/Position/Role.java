@@ -73,9 +73,11 @@ public class Role extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel3.setText("Position Name");
         jPanel4.add(jLabel3);
 
+        txtPosition.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtPosition.setText("Staff");
         jPanel4.add(txtPosition);
 
@@ -83,9 +85,11 @@ public class Role extends javax.swing.JPanel {
 
         jPanel5.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel4.setText("Details");
         jPanel5.add(jLabel4);
 
+        txtDetails.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDetailsActionPerformed(evt);
@@ -98,6 +102,7 @@ public class Role extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.GridLayout(2, 0, 0, 5));
 
         btnAddPermission.setBackground(new java.awt.Color(35, 83, 143));
+        btnAddPermission.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnAddPermission.setForeground(new java.awt.Color(255, 255, 255));
         btnAddPermission.setText("Add Permission");
         btnAddPermission.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +113,7 @@ public class Role extends javax.swing.JPanel {
         jPanel3.add(btnAddPermission);
 
         btnAssignPermission.setBackground(new java.awt.Color(35, 83, 143));
+        btnAssignPermission.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnAssignPermission.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignPermission.setText("Assign Permission");
         btnAssignPermission.addActionListener(new java.awt.event.ActionListener() {
@@ -123,9 +129,10 @@ public class Role extends javax.swing.JPanel {
 
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
-        btnSave.setText("Save");
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -134,6 +141,7 @@ public class Role extends javax.swing.JPanel {
         jPanel19.add(btnSave);
 
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +160,7 @@ public class Role extends javax.swing.JPanel {
 
         jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
+        positionTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         positionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -193,7 +202,7 @@ public class Role extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

@@ -72,7 +72,7 @@ public class UpdateLocation extends javax.swing.JFrame {
         setTitle("Update Location");
 
         jButton1.setBackground(new java.awt.Color(35, 175, 121));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Confirm");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -84,7 +84,7 @@ public class UpdateLocation extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Cancel");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -97,10 +97,10 @@ public class UpdateLocation extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridLayout(3, 1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel4.setText("Name");
 
-        txtName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtName.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtName.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 6, 6));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -123,10 +123,10 @@ public class UpdateLocation extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel5.setText("Description");
 
-        txtDesc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtDesc.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtDesc.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 6, 6));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -135,7 +135,7 @@ public class UpdateLocation extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel5)
-                .addGap(0, 358, Short.MAX_VALUE))
+                .addGap(0, 338, Short.MAX_VALUE))
             .addComponent(txtDesc)
         );
         jPanel3Layout.setVerticalGroup(
@@ -149,13 +149,15 @@ public class UpdateLocation extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel6.setText("Status");
 
         buttonGroup1.add(rdbtnActive);
+        rdbtnActive.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         rdbtnActive.setText("Active");
 
         buttonGroup1.add(rdbtnInactive);
+        rdbtnInactive.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         rdbtnInactive.setText("Inactive");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

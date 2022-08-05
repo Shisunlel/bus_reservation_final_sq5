@@ -85,7 +85,10 @@ public class Transaction extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel1.setText("Account");
+        jLabel1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel2.add(jLabel1);
+
+        cbAccount.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel2.add(cbAccount);
 
         jPanel1.add(jPanel2);
@@ -93,8 +96,10 @@ public class Transaction extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel2.setText("Amount");
+        jLabel2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel3.add(jLabel2);
 
+        txtAmount.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtAmount.setText("100");
         jPanel3.add(txtAmount);
 
@@ -103,7 +108,10 @@ public class Transaction extends javax.swing.JPanel {
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel3.setText("Description");
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel4.add(jLabel3);
+
+        txtDesc.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel4.add(txtDesc);
 
         jPanel1.add(jPanel4);
@@ -113,7 +121,10 @@ public class Transaction extends javax.swing.JPanel {
         jPanel6.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel4.setText("Date");
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel6.add(jLabel4);
+
+        dDate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel6.add(dDate);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -159,7 +170,7 @@ public class Transaction extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         jPanel5.add(jPanel19, gridBagConstraints);
 
-        jPanel16.setLayout(new java.awt.GridLayout());
+        jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
         transactionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,6 +183,7 @@ public class Transaction extends javax.swing.JPanel {
                 "Id", "Account", "Amount", "Description", "Date"
             }
         ));
+        transactionTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         transactionTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         transactionTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

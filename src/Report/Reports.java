@@ -50,7 +50,10 @@ public class Reports extends javax.swing.JPanel {
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel3.setText("From Date");
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel4.add(jLabel3);
+
+        fDate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel4.add(fDate);
 
         jPanel1.add(jPanel4);
@@ -58,7 +61,10 @@ public class Reports extends javax.swing.JPanel {
         jPanel5.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel4.setText("To Date");
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel5.add(jLabel4);
+
+        tDate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel5.add(tDate);
 
         jPanel1.add(jPanel5);
@@ -80,9 +86,10 @@ public class Reports extends javax.swing.JPanel {
 
         jPanel20.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
-        btnSearch.setBackground(new java.awt.Color(0, 72, 217));
-        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Search");
+        btnSearch.setBackground(new java.awt.Color(0, 72, 217));
+        btnSearch.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
@@ -94,7 +101,7 @@ public class Reports extends javax.swing.JPanel {
 
         jPanel1.add(jPanel3);
 
-        jPanel16.setLayout(new java.awt.GridLayout());
+        jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
         reportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,6 +114,7 @@ public class Reports extends javax.swing.JPanel {
                 "Booking ID", "Date", "Origin", "Destination", "Total Seat", "Price"
             }
         ));
+        reportTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         reportTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         reportTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

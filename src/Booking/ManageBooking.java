@@ -54,8 +54,11 @@ public class ManageBooking extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel3.setText("Booking ID");
         jPanel4.add(jLabel3);
+
+        txtBId.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel4.add(txtBId);
 
         jPanel1.add(jPanel4);
@@ -63,6 +66,7 @@ public class ManageBooking extends javax.swing.JPanel {
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
         btnSearch.setBackground(new java.awt.Color(35, 83, 143));
+        btnSearch.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +82,7 @@ public class ManageBooking extends javax.swing.JPanel {
         jPanel5.add(btnSearch, gridBagConstraints);
 
         btnPrint.setBackground(new java.awt.Color(255, 255, 255));
+        btnPrint.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnPrint.setForeground(new java.awt.Color(51, 51, 51));
         btnPrint.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 72, 217), 1, true));
         btnPrint.setLabel("Print Ticket");
@@ -101,8 +106,9 @@ public class ManageBooking extends javax.swing.JPanel {
 
         jPanel16.setLayout(new java.awt.GridBagLayout());
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
+        bookingTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         bookingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -132,9 +138,10 @@ public class ManageBooking extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         jPanel16.add(jPanel2, gridBagConstraints);
 
-        jPanel6.setLayout(new java.awt.GridLayout());
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setWrapStyleWord(true);
         jPanel6.add(jTextArea1);

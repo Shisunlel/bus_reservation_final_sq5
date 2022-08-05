@@ -90,8 +90,10 @@ public class Overtime extends javax.swing.JPanel {
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel3.setText("Staff");
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel4.add(jLabel3);
 
+        cbStaff.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel4.add(cbStaff);
 
         jPanel1.add(jPanel4);
@@ -99,8 +101,10 @@ public class Overtime extends javax.swing.JPanel {
         jPanel5.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel4.setText("Duration (In Minutes)");
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel5.add(jLabel4);
 
+        txtDuration.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtDuration.setText("120");
         txtDuration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +118,10 @@ public class Overtime extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel2.setText("Date");
+        jLabel2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel3.add(jLabel2);
+
+        dDate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel3.add(dDate);
 
         jPanel1.add(jPanel3);
@@ -124,12 +131,14 @@ public class Overtime extends javax.swing.JPanel {
         jPanel11.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel8.setText("Status");
+        jLabel8.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jPanel11.add(jLabel8);
         jPanel11.add(jPanel13);
 
         statusGroup.add(statusN);
         statusN.setSelected(true);
         statusN.setText("Submit");
+        statusN.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         statusN.setActionCommand("Submit");
         statusN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +150,7 @@ public class Overtime extends javax.swing.JPanel {
         statusGroup.add(statusY);
         statusY.setText("Approve");
         statusY.setActionCommand("Approved");
+        statusY.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel11.add(statusY);
 
         jPanel15.add(jPanel11, new java.awt.GridBagConstraints());
@@ -149,20 +159,21 @@ public class Overtime extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel15.add(jPanel2, new java.awt.GridBagConstraints());
 
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
-        btnSave.setBackground(new java.awt.Color(0, 72, 217));
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
+        btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -170,9 +181,10 @@ public class Overtime extends javax.swing.JPanel {
         });
         jPanel19.add(btnSave);
 
-        btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
+        btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -200,6 +212,7 @@ public class Overtime extends javax.swing.JPanel {
                 "Id", "First Name", "Last Name", "Duration (In Minutes)", "Status", "Date"
             }
         ));
+        OTTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         OTTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         OTTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

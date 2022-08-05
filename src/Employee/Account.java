@@ -131,9 +131,11 @@ public class Account extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel1.setText("First Name");
         jPanel2.add(jLabel1);
 
+        txtFirstName.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtFirstName.setText("John");
         jPanel2.add(txtFirstName);
 
@@ -141,9 +143,11 @@ public class Account extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel2.setText("Last Name");
         jPanel3.add(jLabel2);
 
+        txtLastName.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtLastName.setText("Doe");
         jPanel3.add(txtLastName);
 
@@ -151,9 +155,11 @@ public class Account extends javax.swing.JFrame {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel3.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel3.setText("Position");
         jPanel4.add(jLabel3);
 
+        cbPosition.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         jPanel4.add(cbPosition);
 
         jPanel1.add(jPanel4);
@@ -162,9 +168,11 @@ public class Account extends javax.swing.JFrame {
 
         jPanel6.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel4.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel4.setText("Email");
         jPanel6.add(jLabel4);
 
+        txtEmail.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtEmail.setText("john@city.travel.com");
         jPanel6.add(txtEmail);
 
@@ -172,9 +180,11 @@ public class Account extends javax.swing.JFrame {
 
         jPanel7.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel5.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel5.setText("Password");
         jPanel7.add(jLabel5);
 
+        txtPassword.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtPassword.setText("1234qwer");
         jPanel7.add(txtPassword);
 
@@ -182,9 +192,11 @@ public class Account extends javax.swing.JFrame {
 
         jPanel8.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel6.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel6.setText("Mobile");
         jPanel8.add(jLabel6);
 
+        txtMobile.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtMobile.setText("012345678");
         jPanel8.add(txtMobile);
 
@@ -194,10 +206,11 @@ public class Account extends javax.swing.JFrame {
 
         jPanel10.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel7.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel7.setText("Salary");
         jPanel10.add(jLabel7);
 
-        txtSalary.setFont(txtSalary.getFont());
+        txtSalary.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtSalary.setText("150");
         jPanel10.add(txtSalary);
 
@@ -205,16 +218,19 @@ public class Account extends javax.swing.JFrame {
 
         jPanel11.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel8.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel8.setText("Can Login");
         jPanel11.add(jLabel8);
         jPanel11.add(jPanel13);
 
         login_group.add(loginY);
+        loginY.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         loginY.setText("Yes");
         loginY.setActionCommand("1");
         jPanel11.add(loginY);
 
         login_group.add(loginN);
+        loginN.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         loginN.setSelected(true);
         loginN.setText("No");
         loginN.setActionCommand("0");
@@ -224,16 +240,19 @@ public class Account extends javax.swing.JFrame {
 
         jPanel12.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel9.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel9.setText("Is Active");
         jPanel12.add(jLabel9);
         jPanel12.add(jPanel14);
 
         active_group.add(activeY);
+        activeY.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         activeY.setText("Yes");
         activeY.setActionCommand("1");
         jPanel12.add(activeY);
 
         active_group.add(activeN);
+        activeN.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         activeN.setSelected(true);
         activeN.setText("No");
         activeN.setActionCommand("0");
@@ -245,10 +264,12 @@ public class Account extends javax.swing.JFrame {
 
         jPanel17.setLayout(new java.awt.GridLayout(2, 0));
 
+        jLabel11.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         jLabel11.setText("Address");
         jPanel17.add(jLabel11);
 
         txtAddress.setColumns(20);
+        txtAddress.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         txtAddress.setRows(5);
         jScrollPane1.setViewportView(txtAddress);
 
@@ -266,6 +287,7 @@ public class Account extends javax.swing.JFrame {
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
         btnSave.setBackground(new java.awt.Color(0, 72, 217));
+        btnSave.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -276,6 +298,7 @@ public class Account extends javax.swing.JFrame {
         jPanel19.add(btnSave);
 
         btnUpdate.setBackground(new java.awt.Color(35, 175, 121));
+        btnUpdate.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -294,6 +317,7 @@ public class Account extends javax.swing.JFrame {
 
         jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
+        employeeTable.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         employeeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
@@ -333,7 +357,7 @@ public class Account extends javax.swing.JFrame {
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 438, Short.MAX_VALUE)
+            .addGap(0, 472, Short.MAX_VALUE)
             .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mainPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -345,7 +369,7 @@ public class Account extends javax.swing.JFrame {
                     .addGap(20, 20, 20)
                     .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
