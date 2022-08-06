@@ -5,7 +5,6 @@
 package Booking;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,13 +15,14 @@ import javax.swing.table.DefaultTableModel;
 public class ManageBooking extends javax.swing.JPanel {
 
     DefaultTableModel bookTable;
-    HashMap<String, Object> booking;
+    ArrayList<HashMap<String, Object>> bookings;
 
     /**
      * Creates new form ManageBooking
      */
     public ManageBooking() {
         initComponents();
+        findBooking();
     }
 
     /**
@@ -182,7 +182,13 @@ public class ManageBooking extends javax.swing.JPanel {
         jTextArea1.setText("********************\n");
         jTextArea1.setText(jTextArea1.getText() + "*     CIty Bus            *\n");
         jTextArea1.setText(jTextArea1.getText() + "********************\n");
-        String date = booking.get("start_date").toString();
+        int index = 0;
+        for (var booking : bookings) {
+            if (booking.get("id").equals(bookingTable.getValueAt(row, 0))) {
+                index++;
+            }
+        }
+        String date = bookings.get(index).get("start_date").toString();
         jTextArea1.setText(jTextArea1.getText() + "\n" + date + "\n\n");
         jTextArea1.setText(jTextArea1.getText() + "Ticket No : " + bookingTable.getValueAt(row, 0) + "\n");
         jTextArea1.setText(jTextArea1.getText() + "Vehicle : " + bookingTable.getValueAt(row, 1) + "\n");
@@ -196,36 +202,43 @@ public class ManageBooking extends javax.swing.JPanel {
     }//GEN-LAST:event_bookingTableMouseClicked
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        jTextArea1.setText("");
+        findBooking();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void findBooking() throws NumberFormatException {
         // TODO add your handling code here:
-        int booking_id = Integer.parseInt(txtBId.getText());
-        booking = Booking.findBooking(booking_id);
+        int booking_id = txtBId.getText().isBlank() ? 0 : Integer.parseInt(txtBId.getText());
+        bookings = Booking.findBooking(booking_id);
         bookTable = (DefaultTableModel) bookingTable.getModel();
         bookTable.setRowCount(0);
-        String[] splitSeats = booking.get("seat_no").toString().split(",");
-        var list = new ArrayList<HashMap<String, Object>>();
-        for (int i = 0; i < splitSeats.length; i++) {
-            var map = new HashMap();
-            map.put("id", booking.get("id").toString());
-            map.put("vehicle", booking.get("model").toString());
-            map.put("origin", booking.get("origin").toString());
-            map.put("destination", booking.get("destination").toString());
-            map.put("vehicle_type", booking.get("type").toString());
-            map.put("price", booking.get("price").toString());
-            map.put("seat_no", splitSeats[i].toString());
-            list.add(map);
+        for (var booking : bookings) {
+            String[] splitSeats = booking.get("seat_no").toString().split(",");
+            var list = new ArrayList<HashMap<String, Object>>();
+            for (int i = 0; i < splitSeats.length; i++) {
+                var map = new HashMap();
+                map.put("id", booking.get("id").toString());
+                map.put("vehicle", booking.get("model").toString());
+                map.put("origin", booking.get("origin").toString());
+                map.put("destination", booking.get("destination").toString());
+                map.put("vehicle_type", booking.get("type").toString());
+                map.put("price", booking.get("price").toString());
+                map.put("seat_no", splitSeats[i].toString());
+                list.add(map);
+            }
+            for (var book : list) {
+                Object[] data = new Object[7];
+                data[0] = book.get("id");
+                data[1] = book.get("vehicle");
+                data[2] = book.get("origin");
+                data[3] = book.get("destination");
+                data[4] = book.get("vehicle_type");
+                data[5] = book.get("price");
+                data[6] = book.get("seat_no");
+                bookTable.addRow(data);
+            }
         }
-        for (var book : list) {
-            Object[] data = new Object[7];
-            data[0] = book.get("id");
-            data[1] = book.get("vehicle");
-            data[2] = book.get("origin");
-            data[3] = book.get("destination");
-            data[4] = book.get("vehicle_type");
-            data[5] = book.get("price");
-            data[6] = book.get("seat_no");
-            bookTable.addRow(data);
-        }
-    }//GEN-LAST:event_btnSearchActionPerformed
+    }
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         // TODO add your handling code here:

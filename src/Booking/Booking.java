@@ -114,14 +114,19 @@ public class Booking {
         }
         return result;
     }
-    
-    public static HashMap<String, Object> findBooking(int book_id) {
-        var availableTrips = new HashMap<String, Object>();
+
+    public static ArrayList<HashMap<String, Object>> findBooking(int book_id) {
+        var availableTrips = new ArrayList<HashMap<String, Object>>();
         try {
             var stmt = DBCon.getConnection().createStatement();
-            var query = "SELECT booking.id, model, origin, destination, type, booking.price, seat_no, date_format(start_date, '%W, %d-%m-%Y %p %h:%i') start_date FROM bus_reservation.booking join trip on trip_id = trip.id join vehicle on vehicle_id = vehicle.id join route on route_id = route.id join vehicle_type on route.vehicle_type_id = vehicle_type.id where booking.id = ?";
+            var query = "SELECT booking.id, model, origin, destination, type, booking.price, seat_no, date_format(start_date, '%W, %d-%m-%Y %p %h:%i') start_date FROM bus_reservation.booking join trip on trip_id = trip.id join vehicle on vehicle_id = vehicle.id join route on route_id = route.id join vehicle_type on route.vehicle_type_id = vehicle_type.id ";
+            if (book_id != 0) {
+                query = query + "where booking.id = ?";
+            }
             var preparedStatement = stmt.getConnection().prepareStatement(query);
-            preparedStatement.setInt(1, book_id);
+            if (book_id != 0) {
+                preparedStatement.setInt(1, book_id);
+            }
             var resultSet = preparedStatement.executeQuery();
             var meta = resultSet.getMetaData();
             var cols = new ArrayList<String>();
@@ -129,10 +134,12 @@ public class Booking {
                 cols.add(meta.getColumnName(i));
             }
             while (resultSet.next()) {
+                var row = new HashMap<String, Object>();
                 for (String colName : cols) {
                     var val = resultSet.getObject(colName);
-                    availableTrips.put(colName, val);
+                    row.put(colName, val);
                 }
+                availableTrips.add(row);
             }
             stmt.close();
         } catch (SQLException ex) {
@@ -140,7 +147,7 @@ public class Booking {
         }
         return availableTrips;
     }
-    
+
     public static ArrayList<HashMap<String, Object>> getReports(String from, String to) {
         var report = new ArrayList<HashMap<String, Object>>();
         try {

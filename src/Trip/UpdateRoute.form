@@ -411,10 +411,10 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Active"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Inter" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Active"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rdbtnInactive1">
@@ -422,10 +422,10 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Inactive"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Inter" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Inactive"/>
               </Properties>
             </Component>
           </SubComponents>
